@@ -19,11 +19,12 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
+  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 gem 'slim', '~> 2.0.0.pre.8'

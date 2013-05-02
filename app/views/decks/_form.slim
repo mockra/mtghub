@@ -1,0 +1,11 @@
+= form_for [current_user, @deck] do |f|
+  = f.label :title
+  = f.text_field :title
+
+  = f.label :format
+  = f.text_field :format
+
+  = f.label :tags
+  = f.text_field :tags
+
+  = f.submit
