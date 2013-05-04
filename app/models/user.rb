@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, on: :create
   validates :email, presence: true, uniqueness: { case_sensitive: false },
     format: { with: email_regex }
+  validates :username, presence: true
 
   before_create :generate_auth_token
 
