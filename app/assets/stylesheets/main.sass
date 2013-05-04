@@ -1,13 +1,37 @@
+$gray: #F7F7F7
+
 body
   margin: 0
+  font-family: $helvetica
+
+a
+  text-decoration: none
+  color: gray
+
+a:hover
+  color: blue
 
 .container
   @include outer-container
 
 nav
-  height: 38px
-  background: gray
+  line-height: 32px
+  height: 32px
+  @include linear-gradient($gray, tint($gray, 70%))
+  border-bottom: 1px shade($gray, 1%) solid
+  margin-bottom: 14px
   width: 100%
+  margin-left: 0
+
+.nav-links
+  @include outer-container
 
 .user-links
   float: right
+
+.main-links
+  float: left
+
+.link
+  display: inline
+  margin-right: 7px

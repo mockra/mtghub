@@ -1,8 +1,12 @@
-= form_tag sessions_path do
-  = label_tag :email
-  = text_field_tag :email
-  br
-  = label_tag :password
-  = password_field_tag :password
-  br
-  = submit_tag 'Log In'
+.login
+  = form_tag sessions_path, class: 'login' do
+    .action
+      .label
+        = label_tag :email
+      = text_field_tag :email
+    .action
+      .label
+        = label_tag :password
+      = password_field_tag :password
+    .action
+      = submit_tag 'Log In'
