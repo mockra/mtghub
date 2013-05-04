@@ -1,4 +1,8 @@
 class DecksController < ApplicationController
+  def index
+    @decks = user.decks
+  end
+
   def new
     @deck = current_user.decks.new
   end
@@ -18,11 +22,15 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = current_user.decks.find_by_id params[:id]
+    @deck = user.decks.find_by_id params[:id]
   end
 
 private
   def deck_params
     params.require(:deck).permit(:title, :format, :tags, :colors)
+  end
+
+  def user
+    @user ||= User.find_by_id params[:user_id]
   end
 end

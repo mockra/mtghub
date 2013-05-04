@@ -48,9 +48,17 @@ describe DecksController do
   end
 
   describe '#show' do
-    it 'assigns the given deck' do
+    it 'assigns the given deck for user' do
       get :show, user_id: user, id: deck
       expect(assigns[:deck]).to eq deck
+    end
+  end
+
+  describe '#index' do
+    it 'assigns all decks for user' do
+      controller.stub current_user: nil
+      get :index, user_id: user
+      expect(assigns[:decks]).to eq user.decks
     end
   end
 end
