@@ -4,4 +4,4 @@
     ul
       - block.mtg_sets.each do |set|
         = link_to set.title, set, remote: true
-.mtg_set data-deck="#{@deck.id}"
+.mtg_set data-deck=@deck.id

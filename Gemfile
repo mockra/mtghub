@@ -11,13 +11,7 @@ end
 
 gem 'jquery-rails'
 gem 'turbolinks'
-
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-end
 
 group :development, :test do
   gem "rspec-rails"
@@ -34,6 +28,7 @@ end
 
 gem 'slim', '~> 2.0.0.pre.8'
 gem 'neat'
+gem 'flutie'
 gem 'draper'
 
 gem 'gatherer_set_parser'

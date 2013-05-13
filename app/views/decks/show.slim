@@ -1,5 +1,7 @@
 .deck
-  = @deck.title
-  - @deck.cards.each do |card|
-    .card-image
-      = image_tag card.image_url
+  .info
+    = @deck.title
+  .cards
+    - @deck.cards.each do |card|
+      .card-image
+        = image_tag card.image_url
