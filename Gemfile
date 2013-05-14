@@ -30,5 +30,6 @@ gem 'slim', '~> 2.0.0.pre.8'
 gem 'neat'
 gem 'flutie'
 gem 'draper'
+gem 'simple_form'
 
 gem 'gatherer_set_parser'

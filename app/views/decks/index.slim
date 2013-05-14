@@ -1,3 +1,3 @@
 .decks
   - @decks.each do |deck|
-    = deck.title
+    = link_to deck.title, [deck.user, deck]
