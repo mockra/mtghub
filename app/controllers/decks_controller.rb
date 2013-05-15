@@ -22,7 +22,7 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = user.decks.find_by_id params[:id]
+    @deck = user.decks.find_by_id(params[:id]).decorate
   end
 
 private

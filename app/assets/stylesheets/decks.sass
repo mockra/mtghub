@@ -1,7 +1,19 @@
 .decks-show
+  div.mana-cost
+    @include span-columns(2)
+    @include omega(auto)
+    margin-top: 8px
+
+  div.mana-cost:nth-child(5n + 1)
+    clear: both
+
   div.card-image
     display: inline
-    @include span-columns(2)
 
     img
+      margin-top: -160px
       width: 100%
+
+  div.card-image:first-child
+    img
+      margin-top: 0
