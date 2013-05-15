@@ -2,9 +2,4 @@
   .info
     = @deck.title
     = link_to 'Edit', edit_user_deck_path(@deck.user, @deck)
-  .cards
-    - @deck.mana_groups.each_value do |cards|
-      .mana-cost
-        - cards.each do |card|
-          .card-image
-            = image_tag card.image_url
+  = render @deck

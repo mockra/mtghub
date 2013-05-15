@@ -9,7 +9,7 @@ class DecksController < ApplicationController
 
   def edit
     @mtg_blocks = MtgBlock.all
-    @deck = current_user.decks.find_by_id params[:id]
+    @deck = current_user.decks.find_by_id(params[:id]).decorate
   end
 
   def create

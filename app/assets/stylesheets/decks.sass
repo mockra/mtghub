@@ -1,19 +1,37 @@
-.decks-show
+.decks-show, .decks-edit
   div.mana-cost
     @include span-columns(2)
-    @include omega(auto)
     margin-top: 8px
 
   div.mana-cost:nth-child(5n + 1)
     clear: both
 
-  div.card-image
+  div.card
     display: inline
 
     img
       margin-top: -160px
       width: 100%
 
-  div.card-image:first-child
+  div.card:first-child
     img
       margin-top: 0
+
+.decks-edit
+  .cards
+    float: right
+    @include span-columns(7)
+
+  .mtg_block
+    max-height: 380px
+    overflow: auto
+    float: left
+    @include span-columns(5)
+
+  .block
+    @include span-columns(2 of 5)
+
+  .mtg_set
+    overflow: auto
+    max-height: 380px
+    @include span-columns(3 of 5)

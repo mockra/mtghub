@@ -1,5 +1,3 @@
 = render 'mtg_blocks'
 .deck data-deck=@deck.id data-url=cards_path
-  - @deck.cards.each do |card|
-    = content_tag_for :span, card, 'data-id' => card.id do
-      = image_tag card.image_url
+  = render @deck
