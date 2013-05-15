@@ -3,7 +3,7 @@ $(document).on 'click', '.mtgset > li.card', ->
   $.post $(this).parent().attr('data-url'),
     { id: $(this).attr('data-id'), deck_id: deck_id }
 
-$(document).on 'click', '.card', ->
+$(document).on 'click', 'div.card', ->
   deck_id = $('.deck').attr('data-deck')
   $.ajax
     url: $('.deck').attr('data-url') + '/' + $(this).attr('data-id')
