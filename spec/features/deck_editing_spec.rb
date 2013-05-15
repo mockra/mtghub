@@ -13,7 +13,7 @@ feature 'deck editing' do
     visit edit_user_deck_path(user, deck)
     click_link card.mtg_set.title
     find('li.card', text: card.title).click
-    find('div.card', text: card.title)
+    find('.card img')
     expect(deck.cards.count).to eq 1
   end
 end

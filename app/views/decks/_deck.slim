@@ -2,5 +2,4 @@
   - @deck.mana_groups.each_value do |cards|
     .mana-cost
       - cards.each do |card|
-        = content_tag_for :div, card, 'data-id' => card.id do
-          = image_tag card.image_url
+        = render card
