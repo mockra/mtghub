@@ -1,1 +1,9 @@
-$('.deck').append("<%= escape_javascript(render @card) %>");
+var cmc = $('.mana-cost.<%= @card.cmc %>');
+
+if (cmc.length) {
+  cmc.append("<%= escape_javascript(render @card) %>");
+} else {
+  var div = "<div class='mana-cost <%= @card.cmc %>'>";
+  var text = div + "<%= escape_javascript(render @card) %></div>";
+  $('.cards').append(text);
+}

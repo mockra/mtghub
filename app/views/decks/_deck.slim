@@ -1,5 +1,5 @@
 .cards
-  - @deck.mana_groups.each_value do |cards|
-    .mana-cost
+  - @deck.mana_groups.each_pair do |cmc, cards|
+    .mana-cost class=cmc
       - cards.each do |card|
         = render card
