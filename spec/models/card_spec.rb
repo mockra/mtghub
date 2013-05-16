@@ -22,4 +22,15 @@ describe Card do
       expect(sideboard.cards).to eq [card]
     end
   end
+
+  describe '#land?' do
+    it 'returns true if card type is land' do
+      card.stub main_type: 'Land'
+      expect(card.land?).to be_true
+    end
+
+    it 'returns false when not a land' do
+      expect(card.land?).to be_false
+    end
+  end
 end

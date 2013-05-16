@@ -4,4 +4,8 @@ class Card < ActiveRecord::Base
   has_many :cards_sideboards
   has_many :cards_decks
   has_many :sideboards, through: :cards_sideboards
+
+  def land?
+    main_type =~ /land/i
+  end
 end
