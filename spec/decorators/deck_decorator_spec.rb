@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe DeckDecorator do
-  let(:cards) { [Card.new(cmc: 4), Card.new(cmc: 7), Card.new(cmc: 3),
-    Card.new(cmc: 4)] }
+  let(:cards) { [Card.new(cmc: 4, main_type: 'land'),
+    Card.new(cmc: 7, main_type: 'urn'), Card.new(cmc: 3, main_type: 'tap'),
+    Card.new(cmc: 4, main_type: 'ape'), Card.new(cmc: 4, main_type: 'set')] }
   let(:deck) { Deck.new(cards: cards).decorate }
 
   describe '#mana_groups' do
@@ -15,6 +16,16 @@ describe DeckDecorator do
 
     it 'sorts hash by keys' do
       expect(deck.mana_groups.keys).to eq [3, 4, 7]
+    end
+
+    it 'rejects land cards' do
+      expect(deck.mana_groups[4].count).to eq 2
+    end
+  end
+
+  describe '#lands' do
+    it 'selects all land cards' do
+      expect(deck.lands.count).to eq 1
     end
   end
 end
