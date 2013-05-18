@@ -8,4 +8,8 @@ class DeckDecorator < Draper::Decorator
   def lands
     cards.select(&:land?)
   end
+
+  def land_groups
+    lands.each_slice(5).to_a
+  end
 end

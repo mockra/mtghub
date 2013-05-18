@@ -28,4 +28,15 @@ describe DeckDecorator do
       expect(deck.lands.count).to eq 1
     end
   end
+
+  describe '#land_groups' do
+    it 'breaks lands into groups' do
+      6.times do
+        deck.cards << Card.new(main_type: 'land')
+      end
+      expect(deck.land_groups.count).to eq 2
+      expect(deck.land_groups.first.count).to eq 5
+      expect(deck.land_groups.last.count).to eq 2
+    end
+  end
 end
