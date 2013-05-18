@@ -1,5 +1,12 @@
 .cards
+  h3 Cards
   - @deck.mana_groups.each_pair do |cmc, cards|
     .mana-cost class=cmc
       - cards.each do |card|
         = render card
+  .lands
+    h3 Lands
+    - @deck.land_groups.each do |lands|
+      .mana-cost
+        -lands.each do |land|
+          = render land
