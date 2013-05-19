@@ -2,16 +2,14 @@
   @include fill-parent()
 
   div.mana-cost
-    @include span-columns(2.2)
-
-  div.mana-cost:nth-child(6n + 1)
-    clear: both
+    @include span-columns(1.6 of 8)
+    @include omega(6n)
 
   div.card
     display: inline
 
     img
-      margin-top: -192px
+      margin-top: -208px
       width: 100%
 
   div.card:first-child
@@ -24,9 +22,9 @@
 .decks-edit
   div.card
     img
-      margin-top: -128px
+      margin-top: -138px
 
-  .deck
+  .deck-view
     float: right
     @include span-columns(8)
 
