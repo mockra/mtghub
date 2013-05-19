@@ -1,4 +1,4 @@
-var cmc = $('.mana-cost.<%= @card.cmc %>');
+var cmc = $('.cards .mana-cost.<%= @card.cmc %>');
 
 if (cmc.length) {
   cmc.append("<%= escape_javascript(render @card) %>");
