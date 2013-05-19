@@ -7,4 +7,6 @@ class Deck < ActiveRecord::Base
   has_one :sideboard
 
   validates :title, presence: true
+
+  before_create :build_sideboard
 end

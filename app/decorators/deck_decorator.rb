@@ -12,4 +12,8 @@ class DeckDecorator < Draper::Decorator
   def land_groups
     lands.each_slice(5).to_a
   end
+
+  def sideboard_groups
+    sideboard.cards.each_slice(5).to_a
+  end
 end

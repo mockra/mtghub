@@ -11,3 +11,9 @@
       .mana-cost
         -lands.each do |land|
           = render land
+
+  .sideboard
+    - @deck.sideboard_groups.each do |cards|
+      .mana-cost
+        - cards.each do |card|
+          = render card

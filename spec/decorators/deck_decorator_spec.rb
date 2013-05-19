@@ -4,7 +4,8 @@ describe DeckDecorator do
   let(:cards) { [Card.new(cmc: 4, main_type: 'land'),
     Card.new(cmc: 7, main_type: 'urn'), Card.new(cmc: 3, main_type: 'tap'),
     Card.new(cmc: 4, main_type: 'ape'), Card.new(cmc: 4, main_type: 'set')] }
-  let(:deck) { Deck.new(cards: cards).decorate }
+  let(:sideboard) { create :sideboard }
+  let(:deck) { Deck.new(cards: cards, sideboard: sideboard).decorate }
 
   describe '#mana_groups' do
     it 'groups cards by cmc' do
@@ -37,6 +38,15 @@ describe DeckDecorator do
       expect(deck.land_groups.count).to eq 2
       expect(deck.land_groups.first.count).to eq 5
       expect(deck.land_groups.last.count).to eq 2
+    end
+  end
+
+  describe '#sideboard_groups' do
+    it 'breaks sideboard.cards into groups' do
+      deck.sideboard.cards = cards + [build(:card)]
+      expect(deck.sideboard_groups.count).to eq 2
+      expect(deck.sideboard_groups.first.count).to eq 5
+      expect(deck.sideboard_groups.last.count).to eq 1
     end
   end
 end
