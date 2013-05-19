@@ -1,1 +1,4 @@
 $('.mtg_set').html("<%= escape_javascript( render 'set' ) %>");
+
+var height = $(window).height();
+$('.mtg_set').css('height', height - 90);
