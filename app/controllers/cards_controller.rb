@@ -11,7 +11,12 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    CardsDeck.where(card_id: card.id, deck_id: deck.id).first.destroy
+    if type == 'sideboard'
+      CardsSideboard.where(card_id: card, sideboard_id: deck.sideboard).
+        first.destroy
+    else
+      CardsDeck.where(card_id: card, deck_id: deck).first.destroy
+    end
     render layout: false
   end
 

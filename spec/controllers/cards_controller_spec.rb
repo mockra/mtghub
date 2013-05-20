@@ -26,9 +26,14 @@ describe CardsController do
 
     it 'only removes one instance' do
       deck.cards << card
-      deck.save
       delete :destroy, deck_id: deck, id: card, format: :js
       expect(deck.cards.count).to eq 1
+    end
+
+    it 'removes card from sideboard' do
+      deck.sideboard.cards << card
+      delete :destroy, deck_id: deck, id: card, type: 'sideboard', format: :js
+      expect(deck.sideboard.cards.count).to eq 0
     end
   end
 end

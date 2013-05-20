@@ -5,10 +5,11 @@ $(document).on 'mousedown', '.mtgset > li.card', (event) ->
     { id: $(this).attr('data-id'), deck_id: deck_id, type: type }
 
 $(document).on 'click', 'div.card', ->
+  type = 'sideboard' if $(this).closest('.sideboard').length
   deck_id = $('.deck').attr('data-deck')
   $.ajax
     url: $('.deck').attr('data-url') + '/' + $(this).attr('data-id')
-    data: { deck_id: deck_id }
+    data: { deck_id: deck_id, type: type }
     type: 'DELETE'
     dataType: 'script'
   $(this).hide()
