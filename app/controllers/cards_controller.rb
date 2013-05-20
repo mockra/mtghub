@@ -2,7 +2,11 @@ class CardsController < ApplicationController
   respond_to :js
 
   def create
-    deck.cards << card
+    if type == 'sideboard'
+      deck.sideboard.cards << card
+    else
+      deck.cards << card
+    end
     render layout: false
   end
 
@@ -18,5 +22,9 @@ private
 
   def card
     @card ||= Card.find_by_id params[:id]
+  end
+
+  def type
+    @type ||= params[:type]
   end
 end

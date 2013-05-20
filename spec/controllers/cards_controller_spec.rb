@@ -11,6 +11,11 @@ describe CardsController do
       post :create, deck_id: deck, id: card, format: :js
       expect(deck.cards.count).to eq 2
     end
+
+    it 'adds a card to sideboard' do
+      post :create, deck_id: deck, id: card, type: 'sideboard', format: :js
+      expect(deck.sideboard.cards.count).to eq 1
+    end
   end
 
   describe '#destroy' do
