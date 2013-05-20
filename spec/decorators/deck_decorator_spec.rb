@@ -48,5 +48,10 @@ describe DeckDecorator do
       expect(deck.sideboard_groups.first.count).to eq 5
       expect(deck.sideboard_groups.last.count).to eq 1
     end
+
+    it 'returns empty nested array if no sideboard' do
+      deck.sideboard = nil
+      expect(deck.sideboard_groups).to eq [[]]
+    end
   end
 end

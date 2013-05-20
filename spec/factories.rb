@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :deck do
     title 'Control'
     format 'Standard'
-    association :user, factory: :user
+    user
   end
 
   factory :mtg_block do
@@ -18,7 +18,7 @@ FactoryGirl.define do
   factory :mtg_set do
     title 'Return to Ravnica'
     code 'RTR'
-    association :mtg_block, factory: :mtg_block
+    mtg_block
   end
 
   factory :card do
@@ -27,10 +27,10 @@ FactoryGirl.define do
     cmc 2
     mana_cost ['B', 'G']
     rarity 'Rare'
-    association :mtg_set, factory: :mtg_set
+    mtg_set
   end
 
   factory :sideboard do
-    association :deck, factory: :deck
+    deck
   end
 end
