@@ -16,4 +16,14 @@ class DeckDecorator < Draper::Decorator
   def sideboard_groups
     sideboard ? sideboard.cards.each_slice(5).to_a : [[]]
   end
+
+  def edit
+    edit_link if h.authorized?(user)
+  end
+
+  def edit_link
+    h.link_to h.edit_user_deck_path(user, self) do
+      h.content_tag 'i', nil, class: 'icon-edit-sign'
+    end
+  end
 end

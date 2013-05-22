@@ -54,4 +54,25 @@ describe DeckDecorator do
       expect(deck.sideboard_groups).to eq [[]]
     end
   end
+
+  describe '#edit' do
+    it 'shows edit_link if user is authorized' do
+      helpers.stub 'authorized?' => true
+      deck.should_receive :edit_link
+      deck.edit
+    end
+
+    it 'does not show edit_link if user is not authorized' do
+      helpers.stub 'authorized?' => false
+      deck.should_not_receive :edit_link
+      deck.edit
+    end
+  end
+
+  describe '#edit_link' do
+    it 'creates a link to deck_edit' do
+      expect(deck.edit_link).to include
+        helpers.edit_user_deck_path(deck.user, deck)
+    end
+  end
 end
