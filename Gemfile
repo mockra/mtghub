@@ -4,7 +4,7 @@ gem 'rails', '4.0.0.rc1'
 gem 'pg'
 
 group :assets do
-  gem 'sass-rails', '~> 4.0.0.rc1'
+  gem 'sass-rails', git: 'git://github.com/rails/sass-rails.git'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
 end
@@ -30,6 +30,7 @@ gem 'slim', '~> 2.0.0.pre.8'
 gem 'neat'
 gem 'flutie'
 gem 'draper'
+gem 'font-awesome-rails'
 gem 'simple_form'
 
 gem 'gatherer_set_parser'
