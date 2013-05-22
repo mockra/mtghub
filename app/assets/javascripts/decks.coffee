@@ -13,3 +13,11 @@ $(document).on 'click', 'div.card', ->
     type: 'DELETE'
     dataType: 'script'
   $(this).hide()
+
+$(document).on
+  mouseenter: ->
+    image = "<img src='" + $(this).attr('data-image') + "'/>"
+    $('.card-preview').html(image)
+  mouseleave: ->
+    $('.card-preview').html('')
+  , '.mtgset > li.card'
