@@ -1,0 +1,7 @@
+.deck-links
+  .title
+    = link_to @deck.user.username, @deck.user
+    '  /
+    = link_to @deck.title, [@deck.user, @deck]
+  .deck-nav
+    = @deck.edit

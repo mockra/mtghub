@@ -23,7 +23,7 @@ class DeckDecorator < Draper::Decorator
 
   def edit_link
     h.link_to h.edit_user_deck_path(user, self) do
-      h.content_tag 'i', nil, class: 'icon-edit-sign'
+      h.content_tag 'i', nil, class: 'icon-edit-sign icon-2x'
     end
   end
 end

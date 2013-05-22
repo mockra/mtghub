@@ -1,5 +1,3 @@
 .deck
-  .info
-    = @deck.title
-    = link_to 'Edit', edit_user_deck_path(@deck.user, @deck)
+  = render 'links'
   = render @deck
