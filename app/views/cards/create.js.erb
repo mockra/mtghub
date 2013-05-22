@@ -2,6 +2,10 @@
     var div = "<div class='mana-cost'>";
     var text = div + "<%= escape_javascript(render @card) %></div>";
     $('.sideboard').append(text);
+<% elsif @card.land? %>
+    var div = "<div class='mana-cost'>";
+    var text = div + "<%= escape_javascript(render @card) %></div>";
+    $('.lands').append(text);
 <% else %>
   var cmc = $('.cards .mana-cost.<%= @card.cmc %>');
 
