@@ -8,7 +8,7 @@ feature 'deck editing' do
 
   before { sign_in user }
 
-  scenario 'adding a card to deck', js: true do
+  pending 'adding a card to deck', js: true do
     card
     visit edit_user_deck_path(user, deck)
     click_link card.mtg_set.title
