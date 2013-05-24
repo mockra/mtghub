@@ -1,7 +1,7 @@
 nav
   .nav-links
     .main-links
-      .link= link_to 'Home', root_url
+      .link.logo= link_to 'MtgHub', root_url
       - if current_user
         .link= link_to 'Decks', user_decks_path(current_user)
     .user-links
