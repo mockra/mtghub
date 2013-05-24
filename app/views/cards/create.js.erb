@@ -1,11 +1,21 @@
 <% if @type == 'sideboard' %>
-    var div = "<div class='mana-cost'>";
-    var text = div + "<%= escape_javascript(render @card) %></div>";
-    $('.sideboard').append(text);
+    var last = $('.sideboard .mana-cost').last();
+    if (last.length == 0 || last.children().length == 5) {
+      var div = "<div class='mana-cost'>";
+      var text = div + "<%= escape_javascript(render @card) %></div>";
+      $('.sideboard').append(text);
+    } else {
+      last.append("<%= escape_javascript(render @card) %>");
+    }
 <% elsif @card.land? %>
-    var div = "<div class='mana-cost'>";
-    var text = div + "<%= escape_javascript(render @card) %></div>";
-    $('.lands').append(text);
+    var last = $('.lands .mana-cost').last();
+    if (last.length == 0 || last.children().length == 5) {
+      var div = "<div class='mana-cost'>";
+      var text = div + "<%= escape_javascript(render @card) %></div>";
+      $('.lands').append(text);
+    } else {
+      last.append("<%= escape_javascript(render @card) %>");
+    }
 <% else %>
   var cmc = $('.cards .mana-cost.<%= @card.cmc %>');
 
