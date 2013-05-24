@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ForksController do
   let(:deck) { create :deck }
-  let(:user) { build :user }
+  let(:user) { create :user }
 
   describe '#create' do
     before { controller.stub current_user: user }

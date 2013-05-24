@@ -26,4 +26,12 @@ class DeckDecorator < Draper::Decorator
       h.content_tag 'i', nil, class: 'icon-edit icon-2x'
     end
   end
+
+  def fork
+    fork_link if !h.authorized?(user)
+  end
+
+  def fork_link
+    h.link_to 'Fork', h.forks_url(fork: self), method: :post
+  end
 end

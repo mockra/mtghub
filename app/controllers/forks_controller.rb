@@ -1,7 +1,7 @@
 class ForksController < ApplicationController
   def create
     @fork = ForkAddition.new(current_user, deck).create
-    redirect_to [current_user, @fork]
+    redirect_to edit_user_deck_url(current_user, @fork)
   end
 
 private
