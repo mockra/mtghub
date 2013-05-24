@@ -5,6 +5,7 @@ Mtghub::Application.routes.draw do
   end
   resources :mtg_sets
   resources :cards
+  resources :forks
 
   delete 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login

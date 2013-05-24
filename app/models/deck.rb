@@ -13,4 +13,9 @@ class Deck < ActiveRecord::Base
   def sideboard_cards
     sideboard ? sideboard.cards : create_sideboard.cards
   end
+
+  def sideboard_cards= cards
+    create_sideboard if !sideboard
+    sideboard.cards = cards
+  end
 end
