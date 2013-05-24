@@ -15,4 +15,15 @@ describe Deck do
       expect(deck.cards).to eq [card]
     end
   end
+
+  describe '#sideboard_cards' do
+    it 'returns card array from sideboard' do
+      deck.sideboard = Sideboard.new cards: [card]
+      expect(deck.sideboard_cards).to eq [card]
+    end
+
+    it 'creates a sideboard if one does not exist' do
+      expect { deck.sideboard_cards }.to change(Sideboard, :count).by 1
+    end
+  end
 end

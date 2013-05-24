@@ -9,4 +9,8 @@ class Deck < ActiveRecord::Base
   validates :title, presence: true
 
   before_create :create_sideboard
+
+  def sideboard_cards
+    sideboard ? sideboard.cards : create_sideboard.cards
+  end
 end

@@ -49,29 +49,24 @@ describe DeckDecorator do
       expect(deck.sideboard_groups.last.count).to eq 1
     end
 
-    it 'returns empty nested array if no sideboard' do
+    it 'works with no sideboard' do
       deck.sideboard = nil
-      expect(deck.sideboard_groups).to eq [[]]
+      expect(deck.sideboard_groups).to eq []
     end
   end
 
   describe '#edit' do
     it 'shows edit_link if user is authorized' do
       helpers.stub 'authorized?' => true
-      deck.should_receive :edit_link
       deck.edit
+      expect(deck.edit_link).to include
+        helpers.edit_user_deck_path(deck.user, deck)
     end
 
     it 'does not show edit_link if user is not authorized' do
       helpers.stub 'authorized?' => false
-      deck.should_not_receive :edit_link
       deck.edit
-    end
-  end
-
-  describe '#edit_link' do
-    it 'creates a link to deck_edit' do
-      expect(deck.edit_link).to include
+      expect(deck.edit_link).to_not include
         helpers.edit_user_deck_path(deck.user, deck)
     end
   end

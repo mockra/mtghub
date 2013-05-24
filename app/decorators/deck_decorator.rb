@@ -14,7 +14,7 @@ class DeckDecorator < Draper::Decorator
   end
 
   def sideboard_groups
-    sideboard ? sideboard.cards.each_slice(5).to_a : [[]]
+    sideboard_cards.each_slice(5).to_a
   end
 
   def edit
