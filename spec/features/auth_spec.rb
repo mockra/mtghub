@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'vcr_config'
 
 feature 'sessions' do
   let(:user) { create :user }
@@ -9,8 +10,8 @@ feature 'sessions' do
     expect(page).to have_content user.username.humanize
   end
 
-  scenario 'signing out' do
-    click_link 'Sign Out'
+  scenario 'signing out', js: true do
+    find('i.icon-signout').click
     expect(page).to_not have_content user.username.humanize
   end
 end
