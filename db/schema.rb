@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130501232223) do
+ActiveRecord::Schema.define(version: 20130528021108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,35 @@ ActiveRecord::Schema.define(version: 20130501232223) do
   add_index "mtg_sets", ["title"], name: "index_mtg_sets_on_title", using: :btree
 
   create_table "sideboards", force: true do |t|
+    t.integer  "deck_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "suggestion_additions", force: true do |t|
+    t.integer "card_id"
+    t.integer "suggestion_id"
+  end
+
+  create_table "suggestion_deletions", force: true do |t|
+    t.integer "card_id"
+    t.integer "suggestion_id"
+  end
+
+  create_table "suggestion_sideboard_additions", force: true do |t|
+    t.integer "card_id"
+    t.integer "suggestion_id"
+  end
+
+  create_table "suggestion_sideboard_deletions", force: true do |t|
+    t.integer "card_id"
+    t.integer "suggestion_id"
+  end
+
+  create_table "suggestions", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
     t.integer  "deck_id"
     t.datetime "created_at"
     t.datetime "updated_at"

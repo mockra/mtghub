@@ -5,6 +5,7 @@ class Deck < ActiveRecord::Base
   has_many :cards_decks
   has_many :cards, through: :cards_decks, dependent: :destroy
   has_one :sideboard, dependent: :destroy
+  has_many :suggestions
 
   validates :title, presence: true
 
