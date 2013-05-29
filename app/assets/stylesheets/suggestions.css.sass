@@ -1,0 +1,18 @@
+.suggestions
+  div.card
+    display: inline
+    @include span-columns(1 of 5)
+
+    img
+      width: 100%
+
+  .sideboard
+    clear: both
+
+  .additions
+    float: left
+    @include span-columns(5)
+
+  .deletions
+    float: right
+    @include span-columns(5)

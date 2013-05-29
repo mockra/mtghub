@@ -17,7 +17,6 @@ describe SuggestionCreator do
       suggestion.should_receive(:deletions=)
       suggestion.should_receive(:sideboard_additions=)
       suggestion.should_receive(:sideboard_deletions=)
-      suggestion.should_receive(:save)
       creator.process
     end
   end

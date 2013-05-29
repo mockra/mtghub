@@ -4,5 +4,7 @@
     '  /
     = link_to @deck.title, [@deck.user, @deck]
   .deck-nav
-    = @deck.fork
-    = @deck.edit
+    - if current_user
+      = @deck.suggest
+      = @deck.fork
+      = @deck.edit

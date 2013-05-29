@@ -7,7 +7,7 @@ class SuggestionCreator
 
   def process
     add_differences
-    suggestion.save
+    suggestion
   end
 
   def add_differences
