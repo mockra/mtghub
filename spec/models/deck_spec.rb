@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Deck do
   let(:deck) { create :deck, cards: [card] }
-  let(:card) { create :card }
+  let(:card) { build :card }
 
   it { should belong_to :user }
   it { should belong_to :origin }

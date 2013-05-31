@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Card do
-  let(:card) { create :card }
+  let(:card) { build :card }
 
   it { should belong_to :mtg_set }
 

@@ -9,14 +9,14 @@ describe SuggestionCreator do
 
   describe '#process' do
     before { user.stub_chain(:suggestions, :build) { suggestion } }
-    before { creator.stub deck_diff: stub(additions: [], deletions: []) }
-    before { creator.stub sideboard_diff: stub(additions: [], deletions: []) }
+    before { creator.stub deck_diff: double(additions: [], deletions: []) }
+    before { creator.stub sideboard_diff: double(additions: [], deletions: []) }
 
     it 'adds differences to suggestion' do
-      suggestion.should_receive(:additions=)
-      suggestion.should_receive(:deletions=)
-      suggestion.should_receive(:sideboard_additions=)
-      suggestion.should_receive(:sideboard_deletions=)
+      expect(suggestion).to receive(:additions=)
+      expect(suggestion).to receive(:deletions=)
+      expect(suggestion).to receive(:sideboard_additions=)
+      expect(suggestion).to receive(:sideboard_deletions=)
       creator.process
     end
   end

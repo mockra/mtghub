@@ -6,16 +6,16 @@ describe SetCollector do
 
   describe '#cards' do
     it 'returns formatted parsed cards' do
-      GathererSetParser::Fetch.should_receive(:new).with('Gatecrash').
-        and_return(stub cards: [{card_type: 'test'}])
+      expect(GathererSetParser::Fetch).to receive(:new).with('Gatecrash').
+        and_return(double cards: [{card_type: 'test'}])
       expect(subject.cards.first).to include main_type: 'test'
     end
   end
 
   describe '#parsed_cards' do
     it 'fetches cards from the set parser' do
-      GathererSetParser::Fetch.should_receive(:new).with('Gatecrash').
-        and_return(stub cards: ['dimir'])
+      expect(GathererSetParser::Fetch).to receive(:new).with('Gatecrash').
+        and_return(double cards: ['dimir'])
       expect(subject.parsed_cards).to eq ['dimir']
     end
   end

@@ -7,6 +7,18 @@ GIT
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc4)
 
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: 0cea51be3fa073d6ab10b38b5c9a7c976750aa2c
+  specs:
+    rspec-rails (2.14.0.rc1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 2.14.0.rc1)
+      rspec-expectations (= 2.14.0.rc1)
+      rspec-mocks (= 2.14.0.rc1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -118,17 +130,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.0.4)
     request_store (1.0.5)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
+    rspec-core (2.14.0.rc1)
+    rspec-expectations (2.14.0.rc1)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.13.1)
-    rspec-rails (2.13.2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
+    rspec-mocks (2.14.0.rc1)
     sass (3.2.9)
     shoulda-matchers (2.1.0)
       activesupport (>= 3.0.0)
@@ -183,7 +188,7 @@ DEPENDENCIES
   pg
   poltergeist
   rails (= 4.0.0.rc1)
-  rspec-rails
+  rspec-rails!
   sass-rails!
   shoulda-matchers
   simple_form

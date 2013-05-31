@@ -14,7 +14,7 @@ gem 'turbolinks'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development, :test do
-  gem "rspec-rails"
+  gem "rspec-rails", git: 'git://github.com/rspec/rspec-rails.git'
 end
 
 group :test do
