@@ -3,8 +3,12 @@
     = link_to @deck.user.username, @deck.user
     '  /
     = link_to @deck.title, [@deck.user, @deck]
+    '
   .deck-nav
     - if current_user
       = @deck.suggest
       = @deck.fork
       = @deck.edit
+  .nav
+    = link_to 'Deck', [@deck.user, @deck]
+    = link_to 'Suggestions', deck_suggestions_url(@deck)

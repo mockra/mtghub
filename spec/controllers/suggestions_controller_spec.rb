@@ -30,7 +30,7 @@ describe SuggestionsController do
 
     it 'redirects to suggestion' do
       post :create, deck_id: deck, suggestion: { title: '' }
-      expect(response).to redirect_to assigns[:suggestion]
+      expect(response).to redirect_to [deck.origin, assigns[:suggestion]]
     end
 
     it 'assigns new attributes' do
@@ -40,10 +40,10 @@ describe SuggestionsController do
   end
 
   describe '#show' do
-    let(:suggestion) { create :suggestion }
+    let(:suggestion) { create :suggestion, deck: deck }
 
     it 'assigns a suggestion' do
-      get :show, id: suggestion
+      get :show, deck_id: deck, id: suggestion
       expect(assigns[:suggestion]).to eq suggestion
     end
   end

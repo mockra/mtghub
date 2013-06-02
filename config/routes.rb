@@ -3,7 +3,9 @@ Mtghub::Application.routes.draw do
   resources :users do
     resources :decks
   end
-  resources :suggestions
+  resources :decks do
+    resources :suggestions
+  end
   resources :mtg_sets
   resources :cards
   resources :forks

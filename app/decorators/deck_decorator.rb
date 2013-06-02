@@ -32,7 +32,7 @@ class DeckDecorator < Draper::Decorator
   end
 
   def suggest_link
-    h.link_to 'Suggest Changes', h.new_suggestion_path(deck_id: self)
+    h.link_to 'Suggest Changes', h.new_deck_suggestion_path(self)
   end
 
   def fork

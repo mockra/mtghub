@@ -16,3 +16,19 @@
   .deletions
     float: right
     @include span-columns(5)
+
+.suggestion-box
+  @include span-columns(10)
+  @include shift(1)
+  border-radius: 6px
+  padding: 0 8px
+  @include linear-gradient(tint($gray, 90%), tint($gray, 80%))
+  border: 1px solid $gray
+  height: 48px
+  line-height: 48px
+
+  .title
+    float: left
+
+  .author
+    float: right

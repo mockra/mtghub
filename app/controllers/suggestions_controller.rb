@@ -4,17 +4,21 @@ class SuggestionsController < ApplicationController
   def new
   end
 
+  def index
+    @suggestions ||= deck.suggestions
+  end
+
   def create
     suggestion.assign_attributes suggestion_params
     if suggestion.save
-      redirect_to suggestion
+      redirect_to [deck.origin, suggestion]
     else
       render :new
     end
   end
 
   def show
-    @suggestion = Suggestion.find_by_id params[:id]
+    @suggestion = deck.suggestions.find_by_id params[:id]
   end
 
 private
