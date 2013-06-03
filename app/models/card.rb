@@ -13,4 +13,8 @@ class Card < ActiveRecord::Base
   def land?
     main_type =~ /land/i
   end
+
+  def self.terms_for term
+    where("title ilike ?", "#{term}_%").limit(10).pluck(:title)
+  end
 end

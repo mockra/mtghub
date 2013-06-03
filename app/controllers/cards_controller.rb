@@ -26,7 +26,7 @@ private
   end
 
   def card
-    @card ||= Card.find_by_id params[:id]
+    @card ||= Card.find_by_id(params[:id]) || Card.find_by_title(params[:term])
   end
 
   def type

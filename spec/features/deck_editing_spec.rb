@@ -4,7 +4,7 @@ require 'vcr_config'
 feature 'deck editing' do
   let(:user) { create :user }
   let(:deck) { create :deck, user: user }
-  let(:card) { create :card }
+  let(:card) { create :card, title: 'Abrupt Decay' }
 
   before { sign_in user }
 
