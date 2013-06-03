@@ -61,4 +61,11 @@ describe DecksController do
       expect(assigns[:decks]).to eq user.decks
     end
   end
+
+  describe '#comments' do
+    it 'assigns the given deck for user' do
+      get :show, user_id: user, id: deck
+      expect(assigns[:deck]).to eq deck
+    end
+  end
 end

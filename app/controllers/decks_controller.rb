@@ -25,6 +25,10 @@ class DecksController < ApplicationController
     @deck = Deck.find_by_id(params[:id]).decorate
   end
 
+  def comments
+    @deck = Deck.find_by_id(params[:deck_id]).decorate
+  end
+
 private
   def deck_params
     params.require(:deck).permit(:title, :format, :tags, :colors)

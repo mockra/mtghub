@@ -6,6 +6,7 @@ describe Suggestion do
 
   it { should belong_to :user }
   it { should belong_to :deck }
+  it { should have_many :comments }
 
   describe '#additions and deletions' do
     it 'has many cards' do

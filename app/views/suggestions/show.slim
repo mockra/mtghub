@@ -6,3 +6,9 @@
       = @suggestion.accept
     .content= @suggestion.content
   = render @suggestion
+
+.comments
+  - @suggestion.comments.each do |comment|
+    = render comment
+
+= render 'comments/form', commentable: @suggestion
