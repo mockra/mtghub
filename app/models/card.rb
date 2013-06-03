@@ -15,6 +15,6 @@ class Card < ActiveRecord::Base
   end
 
   def self.terms_for term
-    where("title ilike ?", "#{term}_%").limit(10).pluck(:title)
+    where("title ilike ?", "#{term}_%").limit(3).pluck(:title)
   end
 end
