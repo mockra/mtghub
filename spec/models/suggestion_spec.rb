@@ -16,4 +16,12 @@ describe Suggestion do
       end
     end
   end
+
+  describe '#close' do
+    it 'updates open to false' do
+      expect(suggestion.open).to be_true
+      suggestion.close
+      expect(suggestion.open).to be_false
+    end
+  end
 end

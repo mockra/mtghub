@@ -1,3 +1,4 @@
+= render 'decks/links', active: :suggestions
 - @suggestions.each do |suggestion|
   .suggestion-box
     .title= link_to suggestion.title, [@deck, suggestion]

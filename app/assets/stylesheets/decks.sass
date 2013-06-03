@@ -67,5 +67,37 @@
   .title
     float: left
 
-  .deck-nav
+  .nav
     float: right
+
+.deck-navbar
+  padding: 0
+  clear: both
+  height: 28px
+  @include fill-parent
+  @include linear-gradient(tint($gray, 80%), tint($gray, 40%))
+  border: 1px solid $gray
+  border-radius: 4px
+  list-style: none
+  margin-bottom: 14px
+
+ul.deck-nav
+  margin: 0
+  width: 100%
+  display: table
+  list-style: none
+  padding: 0
+
+  li
+    display: table-cell
+    float: none
+    width: 1%
+    line-height: 28px
+    text-align: center
+    border-left: 1px solid $gray
+
+  li:first-child
+    border-left: none
+
+  li.active
+    background-color: tint($gray, 40%)

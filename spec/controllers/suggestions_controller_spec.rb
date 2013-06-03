@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SuggestionsController do
-  let(:origin) { create :deck }
+  let(:origin) { create :deck, user: user }
   let(:card) { create :card }
   let(:deck) { create :deck, origin: origin, cards: [card] }
   let(:user) { create :user }
@@ -30,7 +30,7 @@ describe SuggestionsController do
 
     it 'redirects to suggestion' do
       post :create, deck_id: deck, suggestion: { title: '' }
-      expect(response).to redirect_to [deck.origin, assigns[:suggestion]]
+      expect(response).to redirect_to [origin, assigns[:suggestion]]
     end
 
     it 'assigns new attributes' do
@@ -45,6 +45,31 @@ describe SuggestionsController do
     it 'assigns a suggestion' do
       get :show, deck_id: deck, id: suggestion
       expect(assigns[:suggestion]).to eq suggestion
+    end
+  end
+
+  describe '#index' do
+    it 'assigns suggestions' do
+      get :index, deck_id: deck
+      expect(assigns[:suggestions]).to eq deck.suggestions
+    end
+  end
+
+  describe '#update' do
+    let(:suggestion) { create :suggestion, deck: origin }
+
+    before { expect(SuggestionAddendum).to receive(:new).
+      and_return double(process: true) }
+
+    it 'closes the suggestion' do
+      post :update, deck_id: origin, id: suggestion
+      suggestion.reload
+      expect(suggestion.open?).to be_false
+    end
+
+    it 'redirects to deck#edit' do
+      post :update, deck_id: origin, id: suggestion
+      expect(response).to redirect_to edit_user_deck_url user, origin
     end
   end
 end

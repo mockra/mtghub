@@ -17,8 +17,15 @@ class SuggestionsController < ApplicationController
     end
   end
 
+  def update
+    suggestion = deck.suggestions.find_by_id params[:id]
+    SuggestionAddendum.new(deck, suggestion).process
+    suggestion.close
+    redirect_to edit_user_deck_url(deck.user, deck)
+  end
+
   def show
-    @suggestion = deck.suggestions.find_by_id params[:id]
+    @suggestion = deck.suggestions.find_by_id(params[:id]).decorate
   end
 
 private
@@ -27,7 +34,7 @@ private
   end
 
   def deck
-    @deck ||= Deck.find_by_id params[:deck_id]
+    @deck ||= Deck.find_by_id(params[:deck_id]).decorate
   end
 
   def suggestion

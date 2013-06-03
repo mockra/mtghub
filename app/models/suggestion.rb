@@ -15,4 +15,8 @@ class Suggestion < ActiveRecord::Base
   has_many :suggestion_sideboard_deletions, dependent: :destroy
   has_many :sideboard_deletions, through: :suggestion_sideboard_deletions,
     source: :card
+
+  def close
+    update_attribute :open, false
+  end
 end
