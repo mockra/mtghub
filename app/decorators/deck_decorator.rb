@@ -27,6 +27,14 @@ class DeckDecorator < Draper::Decorator
     end
   end
 
+  def suggest
+    suggest_link if origin && h.authorized?(user)
+  end
+
+  def suggest_link
+    h.link_to 'Suggest Changes', h.new_deck_suggestion_path(self)
+  end
+
   def fork
     fork_link if !h.authorized?(user)
   end

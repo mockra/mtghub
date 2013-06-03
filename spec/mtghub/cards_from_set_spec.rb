@@ -8,10 +8,10 @@ describe CardsFromSet do
 
   describe '#generate' do
     it 'fetches cards from set collector for card addition' do
-      SetCollector.should_receive(:new).with('Gatecrash').
-        and_return(stub cards: ['hash'])
-      CardAddition.should_receive(:new).with('Gatecrash', 'hash').
-        and_return(stub create: '')
+      expect(SetCollector).to receive(:new).with('Gatecrash').
+        and_return(double cards: ['hash'])
+      expect(CardAddition).to receive(:new).with('Gatecrash', 'hash').
+        and_return(double create: '')
       subject.generate
     end
   end

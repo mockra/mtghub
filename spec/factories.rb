@@ -33,4 +33,10 @@ FactoryGirl.define do
   factory :sideboard do
     deck
   end
+
+  factory :suggestion do
+    title 'add cards'
+    deck
+    user
+  end
 end

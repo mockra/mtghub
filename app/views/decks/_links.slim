@@ -3,6 +3,16 @@
     = link_to @deck.user.username, @deck.user
     '  /
     = link_to @deck.title, [@deck.user, @deck]
-  .deck-nav
-    = @deck.fork
-    = @deck.edit
+    '
+  .nav
+    - if current_user
+      = @deck.suggest
+      = @deck.fork
+      = @deck.edit
+.deck-navbar
+  ul.deck-nav
+    li.deck= link_to 'Deck', [@deck.user, @deck]
+    li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
+
+javascript:
+  $(".#{active}").addClass('active');

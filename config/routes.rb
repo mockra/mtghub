@@ -1,7 +1,11 @@
 Mtghub::Application.routes.draw do
   get 'register' => 'users#new', as: :register
+
   resources :users do
     resources :decks
+  end
+  resources :decks do
+    resources :suggestions
   end
   resources :mtg_sets
   resources :cards

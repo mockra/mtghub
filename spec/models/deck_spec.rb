@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe Deck do
   let(:deck) { create :deck, cards: [card] }
-  let(:card) { create :card }
+  let(:card) { build :card }
 
   it { should belong_to :user }
   it { should belong_to :origin }
   it { should have_many :forks }
+  it { should have_many :suggestions }
   it { should validate_presence_of :title }
   it { should have_one :sideboard }
 

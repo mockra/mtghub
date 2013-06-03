@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Card do
-  let(:card) { create :card }
+  let(:card) { build :card }
 
   it { should belong_to :mtg_set }
 
@@ -31,6 +31,22 @@ describe Card do
 
     it 'returns false when not a land' do
       expect(card.land?).to be_false
+    end
+  end
+
+  describe '#terms_for' do
+    before do
+      create :card, title: 'decay'
+      create :card, title: 'Death'
+      create :card, title: 'murder'
+    end
+
+    it 'returns partial title matches' do
+      cards = Card.terms_for('de')
+      expect(cards.count).to eq 2
+      expect(cards).to include 'decay'
+      expect(cards).to include 'Death'
+      expect(cards).to_not include 'murder'
     end
   end
 end

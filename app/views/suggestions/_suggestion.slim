@@ -1,0 +1,20 @@
+.additions
+  h3 Additions
+  - @suggestion.additions.each do |addition|
+    = render addition
+
+.deletions
+  h3 Deletions
+  - @suggestion.deletions.each do |deletion|
+    = render deletion
+
+.sideboard
+  .additions
+    h3 Sideboard Additions
+    - @suggestion.sideboard_additions.each do |sideboard_addition|
+      = render sideboard_addition
+
+  .deletions
+    h3 Sideboard Deletions
+    - @suggestion.sideboard_deletions.each do |sideboard_deletion|
+      = render sideboard_deletion

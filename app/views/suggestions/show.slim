@@ -1,0 +1,8 @@
+= render 'decks/links', active: :suggestions
+.suggestion-show
+  .main
+    .header
+      .title= @suggestion.title
+      = @suggestion.accept
+    .content= @suggestion.content
+  = render @suggestion

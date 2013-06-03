@@ -14,7 +14,7 @@ describe CardAddition do
 
   describe '#mtg_set' do
     it 'finds set by id' do
-      MtgSet.should_receive(:find_by_title).with('Gatecrash')
+      expect(MtgSet).to receive(:find_by_title).with('Gatecrash')
       subject.mtg_set
     end
   end

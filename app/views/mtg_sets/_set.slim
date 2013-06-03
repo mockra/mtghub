@@ -1,4 +1,4 @@
-ul.mtgset data-url="#{cards_url}"
+ul.mtgset
   - @mtg_set.cards.each do |card|
     = content_tag_for :li, card, 'data-id' => card.id, 'data-image' => card.image_url do
       = card.title
