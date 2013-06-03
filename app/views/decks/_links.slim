@@ -13,6 +13,7 @@
   ul.deck-nav
     li.deck= link_to 'Deck', [@deck.user, @deck]
     li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
+    li.comments= link_to 'Comments', user_deck_comments_url(@deck.user, @deck)
 
 javascript:
   $(".#{active}").addClass('active');

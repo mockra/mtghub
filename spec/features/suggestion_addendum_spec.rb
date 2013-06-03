@@ -14,6 +14,6 @@ feature 'suggestions addendum' do
     SuggestionAddendum.new(deck, suggestion).process
     deck.reload
     expect(deck.cards).to eq [card, card, card]
-    expect(deck.sideboard.cards).to eq [card_two, card, card]
+    expect(deck.sideboard.cards).to eq [card, card, card_two]
   end
 end

@@ -1,0 +1,5 @@
+= render 'links', active: :comments
+.comments
+  - @deck.comments.each do |comment|
+    = render comment
+= render 'comments/form', commentable: @deck
