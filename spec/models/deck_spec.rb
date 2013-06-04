@@ -9,6 +9,7 @@ describe Deck do
   it { should have_many :forks }
   it { should have_many :suggestions }
   it { should have_many :comments }
+  it { should have_many :stars }
   it { should validate_presence_of :title }
   it { should have_one :sideboard }
 

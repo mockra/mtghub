@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :decks, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :stars, dependent: :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_presence_of :password, on: :create
