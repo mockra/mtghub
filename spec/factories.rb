@@ -39,4 +39,9 @@ FactoryGirl.define do
     deck
     user
   end
+
+  factory :star do
+    deck
+    user
+  end
 end
