@@ -70,4 +70,16 @@ describe DeckDecorator do
         helpers.edit_user_deck_path(deck.user, deck)
     end
   end
+
+  describe '#stars_link' do
+    it 'has selected class if starred' do
+      deck.stub starred?: 'selected'
+      expect(deck.stars_link).to include 'selected'
+    end
+
+    it 'removes selected class if not starred' do
+      deck.stub starred?: nil
+      expect(deck.stars_link).to_not include 'selected'
+    end
+  end
 end

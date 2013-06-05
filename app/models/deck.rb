@@ -7,6 +7,7 @@ class Deck < ActiveRecord::Base
   has_one :sideboard, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :stars, dependent: :destroy
 
   validates :title, presence: true
 

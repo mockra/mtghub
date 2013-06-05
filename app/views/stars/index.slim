@@ -1,0 +1,8 @@
+= render 'decks/links', active: :stars
+
+.stars
+  - @stars.each do |star|
+    .star-box
+      = link_to star.user.username, star.user
+      '  on
+      = star.created_at.to_s :short

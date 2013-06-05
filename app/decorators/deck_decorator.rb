@@ -22,8 +22,10 @@ class DeckDecorator < Draper::Decorator
   end
 
   def edit_link
-    h.link_to h.edit_user_deck_path(user, self) do
-      h.content_tag 'i', nil, class: 'icon-edit icon-2x'
+    h.content_tag :li do
+      h.button_to h.edit_user_deck_path(user, self) do
+        h.content_tag 'i', ' Edit', class: 'icon-edit'
+      end
     end
   end
 
@@ -32,7 +34,12 @@ class DeckDecorator < Draper::Decorator
   end
 
   def suggest_link
-    h.link_to 'Suggest Changes', h.new_deck_suggestion_path(self)
+    h.content_tag :li do
+      h.button_to h.new_deck_suggestion_path(self), method: :get,
+        class: 'suggest' do
+        h.content_tag 'i', ' Suggest', class: 'icon-upload'
+      end
+    end
   end
 
   def fork
@@ -40,6 +47,25 @@ class DeckDecorator < Draper::Decorator
   end
 
   def fork_link
-    h.link_to 'Fork', h.forks_url(fork: self), method: :post
+    h.content_tag :li do
+      h.button_to h.forks_url(fork: self), class: 'fork' do
+        h.content_tag 'i', ' Copy', class: 'icon-copy'
+      end
+    end
+  end
+
+  def stars_link
+    h.content_tag :li do
+      h.button_to h.deck_stars_path(self), remote: true,
+        class: "stars #{starred?}" do
+        h.content_tag 'i', " #{stars.count}", class: 'icon-star'
+      end
+    end
+  end
+
+  def starred?
+    if h.current_user && stars.find_by_user_id(h.current_user.id)
+      'selected'
+    end
   end
 end

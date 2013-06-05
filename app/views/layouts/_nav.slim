@@ -8,6 +8,6 @@ nav
       - if current_user
         .link= link_to current_user.username.humanize, current_user
         .link= link_to logout_path, method: :delete, alt: 'Sign Out' do
-          i.icon-signout
+          i.icon-off
       - else
         .link= link_to 'Sign In', login_path
