@@ -19,11 +19,11 @@ describe StarsController do
       }.to change(Star, :count).by 1
     end
 
-    it 'does not create duplicates' do
+    it 'destroys star if one exists' do
       create :star, user: user, deck: deck
       expect {
         post :create, deck_id: deck, format: :js
-      }.to change(Star, :count).by 0
+      }.to change(Star, :count).by -1
     end
   end
 end

@@ -11,7 +11,7 @@ feature 'sessions' do
   end
 
   scenario 'signing out', js: true do
-    find('i.icon-signout').click
+    find('i.icon-off').click
     expect(page).to_not have_content user.username.humanize
   end
 end

@@ -6,11 +6,15 @@ class StarAddition
   end
 
   def process
-    create_star if !star_exists?
+    star_exists? ? destroy_star : create_star
+  end
+
+  def destroy_star
+    deck.stars.find_by_user_id(user.id).destroy
   end
 
   def create_star
-    deck.stars.create user_id: user
+    deck.stars.create user_id: user.id
   end
 
   def star_exists?

@@ -6,6 +6,7 @@
     '
   .nav
     - if current_user
+      = @deck.stars_link
       = @deck.suggest
       = @deck.fork
       = @deck.edit
@@ -14,6 +15,7 @@
     li.deck= link_to 'Deck', [@deck.user, @deck]
     li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
     li.comments= link_to 'Comments', user_deck_comments_url(@deck.user, @deck)
+    li.stars= link_to 'Stars', deck_stars_url(@deck)
 
 javascript:
   $(".#{active}").addClass('active');

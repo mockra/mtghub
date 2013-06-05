@@ -12,9 +12,9 @@ describe StarAddition do
       addition.process
     end
 
-    it 'does not create star if one exists' do
+    it 'destroys star if one exists' do
       deck.stub_chain(:stars, :find_by_user_id) { true }
-      expect(addition).to_not receive(:create_star)
+      expect(addition).to receive(:destroy_star)
       addition.process
     end
   end
