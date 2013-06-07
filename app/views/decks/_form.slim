@@ -1,5 +1,5 @@
 = simple_form_for [current_user, @deck] do |f|
   = f.input :title
-  = f.input :format
+  = f.input :format, as: :select, collection: Format.titles
   = f.input :tags
   = f.button :submit

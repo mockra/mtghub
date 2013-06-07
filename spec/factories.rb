@@ -44,4 +44,8 @@ FactoryGirl.define do
     deck
     user
   end
+
+  factory :format do
+    title 'Standard'
+  end
 end
