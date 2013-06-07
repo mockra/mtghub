@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130604052925) do
+ActiveRecord::Schema.define(version: 20130607062850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,12 @@ ActiveRecord::Schema.define(version: 20130604052925) do
 
   add_index "decks", ["origin_id"], name: "index_decks_on_origin_id", using: :btree
   add_index "decks", ["user_id"], name: "index_decks_on_user_id", using: :btree
+
+  create_table "formats", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mtg_blocks", force: true do |t|
     t.string   "title"
