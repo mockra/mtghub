@@ -1,6 +1,7 @@
 .user-info
   .details
-    h3= @user.username
+    h1= @user.username
+    .image= image_tag @user.gravatar_url size: 240, default: 'identicon'
     .detail
       i.icon-book
       '  Decks:

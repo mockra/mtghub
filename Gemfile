@@ -32,5 +32,6 @@ gem 'flutie'
 gem 'draper'
 gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'gravtastic'
 
 gem 'gatherer_set_parser'

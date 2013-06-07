@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
+
   has_secure_password
   has_many :decks, dependent: :destroy
   has_many :suggestions, dependent: :destroy

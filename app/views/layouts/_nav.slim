@@ -6,7 +6,9 @@ nav
         .link= link_to 'Decks', user_decks_path(current_user)
     .user-links
       - if current_user
-        .link= link_to current_user.username.humanize, current_user
+        .link= link_to current_user do
+          = image_tag current_user.gravatar_url size: 20, default: 'identicon'
+        .link= link_to current_user.username, current_user
         .link= link_to new_user_deck_path(current_user), alt: 'New Deck' do
           i.icon-book
         .link= link_to edit_user_path(current_user), alt: 'Settings' do
