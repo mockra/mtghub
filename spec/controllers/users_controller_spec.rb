@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe UsersController do
+  let(:user) { create :user }
+
   describe '#new' do
     it 'assigns a new user' do
       get :new
@@ -27,6 +29,13 @@ describe UsersController do
         post :create, user: { email: 'test' }
         expect(response).to render_template :new
       end
+    end
+  end
+
+  describe '#show' do
+    it 'assigns a user' do
+      get :show, id: user
+      expect(assigns[:user]).to eq user
     end
   end
 end

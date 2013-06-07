@@ -1,0 +1,26 @@
+.user-info
+  .details
+    h3= @user.username
+    .detail
+      i.icon-book
+      '  Decks:
+      = @user.decks.count
+    .detail
+      i.icon-calendar
+      span.gray  Joined on: 
+      = @user.created_at.to_s :short
+
+  .decks
+    h3 Decks
+    - @user.decks.each do |deck|
+      .deck-box
+        .title= link_to deck.title, [deck.user, deck]
+        .details= deck.stars.count
+
+    h3 Suggestions
+    - @user.suggestions.each do |suggestion|
+      .deck-box
+        .title
+          = link_to suggestion.deck.title,
+            [suggestion.deck.user, suggestion.deck]
+        .details= suggestion.deck.stars.count

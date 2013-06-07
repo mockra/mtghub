@@ -1,0 +1,37 @@
+.users-show
+  .user-info
+    margin-top: 14px
+
+  .details
+    @include span-columns(4)
+    @include shift(2)
+    float:left
+
+    i
+      color: gray
+
+    .detail
+      margin: 8px
+
+  .gray
+    color: gray
+
+  .decks
+    @include span-columns(6)
+    float: right
+
+  .deck-box
+    @include fill-parent()
+    clear: both
+    margin-bottom: 8px
+    height: 42px
+    line-height: 42px
+    border: 1px solid $gray
+    border-radius: 4px
+    padding: 0 12px
+
+    .title
+      float: left
+    .details
+      float: right
+      text-align: right

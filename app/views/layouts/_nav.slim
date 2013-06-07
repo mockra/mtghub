@@ -7,6 +7,8 @@ nav
     .user-links
       - if current_user
         .link= link_to current_user.username.humanize, current_user
+        .link= link_to new_user_deck_path(current_user), alt: 'New Deck' do
+          i.icon-book
         .link= link_to logout_path, method: :delete, alt: 'Sign Out' do
           i.icon-off
       - else
