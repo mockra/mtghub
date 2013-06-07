@@ -23,7 +23,7 @@ class DeckDecorator < Draper::Decorator
 
   def edit_link
     h.content_tag :li do
-      h.button_to h.edit_user_deck_path(user, self) do
+      h.button_to h.edit_user_deck_path(user, self), method: :get do
         h.content_tag 'i', ' Edit', class: 'icon-edit'
       end
     end
