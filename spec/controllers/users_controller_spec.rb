@@ -38,4 +38,28 @@ describe UsersController do
       expect(assigns[:user]).to eq user
     end
   end
+
+  describe '#edit' do
+    before { controller.stub current_user: user }
+
+    it 'assigns the user' do
+      get :edit, id: user
+      expect(assigns[:user]).to eq user
+      expect(response).to be_successful
+    end
+  end
+
+  describe '#update' do
+    before { controller.stub current_user: user }
+
+    it 'updates the current_user' do
+      post :update, id: user, user: { username: 'update' }
+      expect(user.username).to eq 'update'
+    end
+
+    it 'redirects to user' do
+      post :update, id: user, user: { id: 3 }
+      expect(response).to redirect_to user
+    end
+  end
 end

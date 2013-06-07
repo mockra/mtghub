@@ -10,4 +10,13 @@ feature 'users' do
     expect(page).to have_content user.username
     expect(page).to have_content deck.title
   end
+
+  scenario 'editing your settings' do
+    sign_in user
+    visit edit_user_path(user)
+    fill_in 'user_username', with: 'update'
+    fill_in 'user_password', with: 'update'
+    click_button 'Update User'
+    expect(page).to have_content 'update'
+  end
 end
