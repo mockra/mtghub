@@ -23,7 +23,7 @@ class DeckDecorator < Draper::Decorator
 
   def edit_link
     h.content_tag :li do
-      h.button_to h.edit_user_deck_path(user, self), method: :get do
+      h.link_to h.edit_user_deck_path(user, self) do
         h.content_tag 'i', ' Edit', class: 'icon-edit'
       end
     end
@@ -35,8 +35,7 @@ class DeckDecorator < Draper::Decorator
 
   def suggest_link
     h.content_tag :li do
-      h.button_to h.new_deck_suggestion_path(self), method: :get,
-        class: 'suggest' do
+      h.link_to h.new_deck_suggestion_path(self), class: 'suggest' do
         h.content_tag 'i', ' Suggest', class: 'icon-upload'
       end
     end
@@ -48,16 +47,16 @@ class DeckDecorator < Draper::Decorator
 
   def fork_link
     h.content_tag :li do
-      h.button_to h.forks_url(fork: self), class: 'fork' do
+      h.link_to h.forks_url(fork: self), class: 'fork', method: :post do
         h.content_tag 'i', ' Copy', class: 'icon-copy'
       end
     end
   end
 
   def stars_link
-    h.content_tag :li do
-      h.button_to h.deck_stars_path(self), remote: true,
-        class: "stars #{starred?}" do
+    h.content_tag :li, class: "stars-post #{starred?}" do
+      h.link_to h.deck_stars_path(self), remote: true, method: :post,
+        class: 'stars-post-link' do
         h.content_tag 'i', " #{stars.count}", class: 'icon-star'
       end
     end
@@ -65,7 +64,7 @@ class DeckDecorator < Draper::Decorator
 
   def starred?
     if h.current_user && stars.find_by_user_id(h.current_user.id)
-      'selected'
+      'active'
     end
   end
 end

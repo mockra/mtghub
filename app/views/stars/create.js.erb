@@ -1,7 +1,7 @@
 html = "<i class='icon-star'></i> <%= @deck.stars.count %>";
-$('button.stars').html(html);
+$('li.stars-post-link').html(html);
 <% if @deck.starred? %>
-  $('button.stars').addClass('selected');
+  $('.stars-post').addClass('active');
 <% else %>
-  $('button.stars').removeClass('selected');
+  $('.stars-post').removeClass('active');
 <% end %>

@@ -1,15 +1,15 @@
-.mtg_block
-  .card-search
-    = text_field_tag :card_search
-  ul.hint
-    li Click adds to deck
-    li Alt-click adds to sideboard
-    li Click to remove card from deck
-  .blocks
-    - @mtg_blocks.each do |block|
-      .block
-        = block.title
-        ul
-          - block.mtg_sets.each do |set|
-            li= link_to set.title, set, remote: true
-  .mtg_set data-deck=@deck.id
+.row-fluid
+  .span12
+    .card-search
+      = text_field_tag :card_search
+    .row-fluid
+      .mtg_block.span6
+        ul.hint
+          li Click adds to deck
+          li Alt-click adds to sideboard
+          li Click to remove card from deck
+        ul.nav.nav-tabs.nav-stacked.block-list
+          - @mtg_blocks.each do |block|
+            - block.mtg_sets.each do |set|
+              li= link_to set.title, set, remote: true
+      .mtg_set.span6

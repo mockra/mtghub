@@ -9,7 +9,7 @@ feature 'suggestions' do
   before { sign_in user }
   before do
     visit user_deck_path(user, fork)
-    find('button.suggest').click
+    find('a.suggest').click
     fill_in 'suggestion_title', with: 'test'
     click_button 'Create Suggestion'
   end

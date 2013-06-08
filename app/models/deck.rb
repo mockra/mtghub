@@ -13,6 +13,8 @@ class Deck < ActiveRecord::Base
 
   before_create :create_sideboard
 
+  scope :for_format, lambda { |x| order('updated_at desc').where(format: x).limit(5) }
+
   def sideboard_cards
     sideboard ? sideboard.cards : create_sideboard.cards
   end

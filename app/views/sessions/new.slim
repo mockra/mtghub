@@ -1,12 +1,6 @@
-.login
-  = form_tag sessions_path, class: 'login' do
-    .action
-      .label
-        = label_tag :email
-      = text_field_tag :email
-    .action
-      .label
-        = label_tag :password
-      = password_field_tag :password
-    .action
-      = submit_tag 'Log In'
+.row-fluid
+  .span4.offset4
+    = simple_form_for :session, url: sessions_path do |f|
+      = f.input :email, label: false, placeholder: 'e-mail'
+      = f.input :password, label: false, placeholder: 'password'
+      = f.button :submit, 'Log In'

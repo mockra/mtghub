@@ -1,3 +1,18 @@
 .decks
-  - @decks.each do |deck|
-    = link_to deck.title, [deck.user, deck]
+  - Format.titles.each do |format|
+    .deck-box.span5
+      h4= format
+      hr
+      table.table.table-hover
+        - @deck.for_format(format).each do |deck|
+          tr
+            td
+              = link_to deck.title, [deck.user, deck]
+            td
+              i.icon-star
+              '
+              = deck.stars.count
+            td.right
+              = image_tag deck.user.gravatar_url size: 16, default: 'identicon'
+              '
+              = link_to deck.user.username, deck.user

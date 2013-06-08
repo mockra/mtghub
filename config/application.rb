@@ -24,5 +24,6 @@ module Mtghub
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.middleware.insert_before 0, "SearchCards"
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end

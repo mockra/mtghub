@@ -1,64 +1,30 @@
 $gray: #e1e1e1
 $blue: #049cdb
 
-html
-  height: 100%
-
-body
-  margin: 0
-  font-family: $helvetica
-  font-size: 13px
-  height: 100%
+.btn-group
+  margin-top: -45px
 
 a
+  color: shade($gray, 60%)
   text-decoration: none
-  color: gray
 
 a:hover
-  color: blue
+  color: shade($gray, 60%)
+  text-decoration: none
 
-.container
-  @include outer-container
+.masthead
+  margin-bottom: 30px
 
-input[type="submit"]
-  background: tint($gray, 10%)
-  min-height: 20px
-  line-height: 20px
-  padding: 4px 9px
-  border: 1px solid shade($gray, 5%)
-  border-radius: 4px
+body
+  width: 85%
+  margin-left: auto
+  margin-right: auto
 
-nav
-  line-height: 32px
-  height: 32px
-  @include linear-gradient($gray, tint($gray, 70%))
-  border-bottom: 1px shade($gray, 1%) solid
-  margin-bottom: 14px
-  width: 100%
-  margin-left: 0
+.logo a
+  color: #D35400
 
-  img
-    margin-bottom: -5px
-    border-radius: 3px
+.muted
+  text-align: center
 
-  a
-    color: shade($gray, 64%)
-
-.nav-links
-  @include outer-container
-
-.user-links
-  float: right
-
-.main-links
-  float: left
-
-.link
-  display: inline
-  margin-right: 7px
-
-.logo
-  font-weight: bold
-
-button.selected
-  color: shade($blue, 40%)
+td.right
+  text-align: right

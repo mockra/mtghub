@@ -1,8 +1,11 @@
 = render 'decks/links', active: :stars
 
-.stars
+.stars.span4.offset4
   - @stars.each do |star|
     .star-box
-      = link_to star.user.username, star.user
-      '  on
-      = star.created_at.to_s :short
+      = link_to star.user do
+        = image_tag star.user.gravatar_url default: 'identicon', size: 18
+        ' 
+        = star.user.username
+        '  on
+        = star.created_at.to_s :short

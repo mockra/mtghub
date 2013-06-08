@@ -10,7 +10,7 @@ feature 'forking' do
   scenario 'users can fork other decks' do
     deck.update_attribute :user, build(:user)
     visit user_deck_path(user, deck)
-    find('button.fork').click
+    find('a.fork').click
     fork = user.decks.first
     expect(current_path).to eq edit_user_deck_path(user, fork)
     expect(fork.title).to eq deck.title

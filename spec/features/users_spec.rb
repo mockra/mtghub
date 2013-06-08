@@ -16,7 +16,7 @@ feature 'users' do
     visit edit_user_path(user)
     fill_in 'user_username', with: 'update'
     fill_in 'user_password', with: 'update'
-    click_button 'Update User'
+    click_button 'Save'
     expect(page).to have_content 'update'
   end
 end
