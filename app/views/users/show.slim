@@ -15,7 +15,14 @@
     h3 Decks
     - @user.decks.each do |deck|
       .deck-box
-        .title= link_to deck.title, [deck.user, deck]
+        .title
+          = link_to deck.title, [deck.user, deck]
+          - if deck.origin
+            small.muted.origin-author
+              i.icon-pencil
+              '
+              = link_to deck.origin.user.username,
+                [deck.origin.user, deck.origin]
         .details= deck.stars.count
 
     h3 Suggestions
