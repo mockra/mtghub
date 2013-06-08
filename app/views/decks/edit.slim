@@ -5,5 +5,7 @@
         .card-preview
         = render 'mtg_blocks'
       .span8
+        .btn.btn-info.pull-right.deck-save
+          = link_to 'Save', [@deck.user, @deck]
         .deck.deck-data data-url="#{cards_url}" data-deck=@deck.id
           = render @deck
