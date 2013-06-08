@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email params[:session][:email]
     if user && user.authenticate(params[:session][:password])
       cookies.permanent[:auth_token] = user.auth_token
-      redirect_to root_url
+      redirect_to user
     else
       render :new
     end
