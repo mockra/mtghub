@@ -27,11 +27,12 @@ group :test do
 end
 
 gem 'slim', '~> 2.0.0.pre.8'
-gem 'neat'
+gem 'bourbon'
 gem 'flutie'
+gem 'bootstrap-sass'
 gem 'draper'
 gem 'font-awesome-rails'
-gem 'simple_form'
+gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 gem 'gravtastic'
 
 gem 'gatherer_set_parser'

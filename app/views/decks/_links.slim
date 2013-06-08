@@ -1,21 +1,24 @@
-.deck-links
-  .title
+.row-fluid.deck-header
+  h4.pull-left.deck-title
     = link_to @deck.user.username, @deck.user
     '  /
     = link_to @deck.title, [@deck.user, @deck]
     '
-  .nav
-    - if current_user
+  .pagination.pull-right.deck-settings
+    ul
       = @deck.stars_link
       = @deck.suggest
       = @deck.fork
       = @deck.edit
-.deck-navbar
-  ul.deck-nav
-    li.deck= link_to 'Deck', [@deck.user, @deck]
-    li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
-    li.comments= link_to 'Comments', user_deck_comments_url(@deck.user, @deck)
-    li.stars= link_to 'Stars', deck_stars_url(@deck)
+
+.navbar.deck-nav
+  .navbar-inner
+    .container
+      ul.nav
+        li.deck= link_to 'Deck', [@deck.user, @deck]
+        li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
+        li.comments= link_to 'Comments', user_deck_comments_url(@deck.user, @deck)
+        li.stars= link_to 'Stars', deck_stars_url(@deck)
 
 javascript:
-  $(".#{active}").addClass('active');
+  $(".deck-nav ul.nav .#{active}").addClass('active');

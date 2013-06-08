@@ -1,5 +1,5 @@
 .user-info
-  .details
+  .details.span4
     h1= @user.username
     .image= image_tag @user.gravatar_url size: 240, default: 'identicon'
     .detail
@@ -11,7 +11,7 @@
       span.gray  Joined on: 
       = @user.created_at.to_s :short
 
-  .decks
+  .decks.span7
     h3 Decks
     - @user.decks.each do |deck|
       .deck-box

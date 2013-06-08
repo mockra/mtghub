@@ -1,7 +1,6 @@
 .suggestions
   div.card
     display: inline
-    @include span-columns(1 of 5)
 
     img
       width: 100%
@@ -11,15 +10,11 @@
 
   .additions
     float: left
-    @include span-columns(5)
 
   .deletions
     float: right
-    @include span-columns(5)
 
 .suggestion-box
-  @include span-columns(10)
-  @include shift(1)
   border-radius: 6px
   padding: 0 8px
   @include linear-gradient(tint($gray, 90%), tint($gray, 80%))
@@ -34,11 +29,7 @@
     float: right
 
 .suggestion-show
-  @include span-columns(11)
-  @include shift(1)
-
   .main
-    @include span-columns(10 of 11)
     box-shadow: 0 0 3px gray
     padding: 8px
     margin-bottom: 10px

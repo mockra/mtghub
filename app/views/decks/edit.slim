@@ -1,4 +1,9 @@
-.card-preview
-= render 'mtg_blocks'
-.deck data-deck=@deck.id data-url=cards_path
-  = render @deck
+.row-fluid
+  .span12
+    .row-fluid
+      .span4
+        .card-preview
+        = render 'mtg_blocks'
+      .span8
+        .deck.deck-data data-url="#{cards_url}" data-deck=@deck.id
+          = render @deck

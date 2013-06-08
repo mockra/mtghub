@@ -1,59 +1,55 @@
 .decks-show, .decks-edit
-  @include fill-parent()
 
   div.mana-cost
-    @include span-columns(1.6 of 8)
-    @include omega(6n)
+    margin: 0 4px 12px 4px
 
   div.card
-    display: inline
+    margin-top: -268px
 
     img
-      margin-top: -208px
+      border-radius: 8px
       width: 100%
 
   div.card:first-child
-    img
-      margin-top: 0
+    margin-top: 0
 
   .lands, .sideboard
     clear: both
 
+  div.mana-cost:nth-of-type(4n + 1)
+    clear: both
+
 .decks-edit
   div.card
+    margin-top: -176px
+
     img
-      margin-top: -138px
+      border-radius: 5px
 
   .deck-view
     float: right
-    @include span-columns(8)
 
   .mtg_block
-    float: left
-    @include span-columns(4)
-
-    ul
-      margin: 0
-      padding: 0 0 0 6px
-
-  .blocks
-    margin-top: 50px
-    overflow: auto
-    display: inline
-    @include span-columns(2 of 4)
+    font-size: 10px
 
   .mtg_set
     overflow: auto
-    @include span-columns(2 of 4)
     font-size: 10px
 
-    li.card
-      margin-bottom: 3px
+    li
+      list-style-type: none
+      border-bottom: 1px solid $gray
+
+    li:hover
+      background: tint($blue, 40%)
 
   ul.hint
-    font-size: 9px
+    font-size: 8px
     color: $blue
     list-style-type: none
+
+    li
+      line-height: 8px
 
   .card-preview
     position: fixed
@@ -62,54 +58,18 @@
     top: 30px
     z-index: 1
 
-.deck-links
-  height: 34px
+.deck-settings
+  margin: 6px 0 0 0
 
-  .title
-    float: left
+.deck-nav
+  margin: 14px 0
 
-  .nav
-    float: right
-    list-style-type: none
+.deck-header
+  height: 42px
+  line-height: 42px
 
-    div, form
-      display: inline
-
-    li
-      padding-left: 4px
-      display: inline
-
-.deck-navbar
-  padding: 0
-  clear: both
-  height: 28px
-  @include fill-parent
-  @include linear-gradient(tint($gray, 80%), tint($gray, 40%))
-  border: 1px solid $gray
-  border-radius: 4px
-  list-style: none
-  margin-bottom: 14px
-
-ul.deck-nav
-  margin: 0
-  width: 100%
-  display: table
-  list-style: none
-  padding: 0
-
-  li
-    display: table-cell
-    float: none
-    width: 1%
-    line-height: 28px
-    text-align: center
-    border-left: 1px solid $gray
-
-  li:first-child
-    border-left: none
-
-  li.active
-    background-color: tint($gray, 40%)
+.deck-title a
+  color: #3498DB
 
 ul.ui-autocomplete
   display: block

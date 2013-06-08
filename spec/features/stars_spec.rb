@@ -9,8 +9,8 @@ feature 'stars' do
 
   scenario 'users can star a deck', js: true do
     visit user_deck_path(deck.user, deck)
-    find('button.stars').click
-    find('button.selected')
+    find('a.stars-post-link').click
+    find('li.active')
     visit deck_stars_path(deck)
     expect(page).to have_content user.username
   end

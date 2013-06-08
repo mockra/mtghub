@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require bootstrap-tooltip
+//= require bootstrap-alert
+//= require bootstrap-button
 //= require turbolinks
 //= require_tree .

@@ -1,15 +1,15 @@
-.deck-view
+.deck-view.span12
   .cards
     h3 Cards
     - @deck.mana_groups.each_pair do |cmc, cards|
-      .mana-cost class=cmc
+      .span3.mana-cost class=cmc
         - cards.each do |card|
           = render card
   .lands
     br
     h3 Lands
     - @deck.land_groups.each do |lands|
-      .mana-cost
+      .span3.mana-cost
         -lands.each do |land|
           = render land
 
@@ -17,6 +17,6 @@
     br
     h3 Sideboard
     - @deck.sideboard_groups.each do |cards|
-      .mana-cost
+      .span3.mana-cost
         - cards.each do |card|
           = render card

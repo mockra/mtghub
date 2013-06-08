@@ -6,19 +6,19 @@ describe SessionsController do
   describe '#create' do
     context 'success' do
       it 'logs in the user' do
-        post :create, email: user.email, password: user.password
+        post :create, session: { email: user.email, password: user.password }
         expect(cookies[:auth_token]).to eq user.auth_token
       end
 
       it 'redirects to root_url' do
-        post :create, email: user.email, password: user.password
+        post :create, session: { email: user.email, password: user.password }
         expect(response).to redirect_to root_url
       end
     end
 
     context 'failure' do
       it 'redirects to sign in' do
-        post :create, email: user.email, password: ''
+        post :create, session: { email: user.email, password: '' }
         expect(response).to render_template :new
       end
     end
