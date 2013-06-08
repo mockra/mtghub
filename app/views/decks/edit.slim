@@ -5,7 +5,11 @@
         .card-preview
         = render 'mtg_blocks'
       .span8
-        .btn.btn-info.pull-right.deck-save
-          = link_to 'Save', [@deck.user, @deck]
+        h4.pull-left= @deck.title
+        = link_to @deck, method: :delete, confirm: 'Are you sure?' do
+          .btn.btn-danger.pull-right.deck-save
+            i.icon-trash
+        = link_to [@deck.user, @deck] do
+          .btn.btn-info.pull-right.deck-save Save
         .deck.deck-data data-url="#{cards_url}" data-deck=@deck.id
           = render @deck

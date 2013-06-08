@@ -67,4 +67,19 @@ describe DecksController do
       expect(assigns[:deck]).to eq deck
     end
   end
+
+  describe '#destroy' do
+    it 'deletes a given deck' do
+      deck
+      expect {
+        delete :destroy, id: deck
+      }.to change(Deck, :count).by -1
+    end
+
+    it 'redirecrs to current_user' do
+      deck
+      delete :destroy, id: deck
+      expect(response).to redirect_to user
+    end
+  end
 end

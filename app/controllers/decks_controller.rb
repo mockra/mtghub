@@ -21,6 +21,12 @@ class DecksController < ApplicationController
     end
   end
 
+  def destroy
+    @deck = current_user.decks.find_by_id params[:id]
+    @deck.destroy
+    redirect_to current_user
+  end
+
   def show
     @deck = Deck.find_by_id(params[:id]).decorate
   end
