@@ -3,7 +3,7 @@
     .deck-box.span5
       h4= format
       hr
-      table.table.table-hover
+      table.table.table-striped
         - @deck.for_format(format).each do |deck|
           tr
             td
