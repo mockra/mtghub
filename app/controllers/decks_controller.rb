@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def index
-    @decks = user.decks
+    @deck = Deck
   end
 
   def new
