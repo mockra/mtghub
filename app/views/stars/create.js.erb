@@ -1,5 +1,5 @@
 html = "<i class='icon-star'></i> <%= @deck.stars.count %>";
-$('li.stars-post-link').html(html);
+$('a.stars-post-link').html(html);
 <% if @deck.starred? %>
   $('.stars-post').addClass('active');
 <% else %>

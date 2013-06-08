@@ -34,5 +34,6 @@ gem 'draper'
 gem 'font-awesome-rails'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 gem 'gravtastic'
+gem 'redcarpet'
 
 gem 'gatherer_set_parser'

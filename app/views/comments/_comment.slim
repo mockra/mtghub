@@ -1,6 +1,9 @@
 .comment.span10.offset1
   .header
-    .user= link_to comment.user.username, comment.user
+    .user
+      = image_tag comment.user.gravatar_url size: 18, default: 'identicon'
+      '
+      = link_to comment.user.username, comment.user
     .timestamp= link_to comment.created_at.to_s :short
   .content
-    = comment.content
+    = markdown(comment.content)
