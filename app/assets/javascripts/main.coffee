@@ -15,5 +15,8 @@ ready = ->
     placement: 'bottom'
     title: 'Log In'
 
+$(document).on 'click', '.comment a.comment-delete', ->
+  $(this).parents('.comment').remove()
+
 $(document).ready(ready)
 $(document).on('page:load', ready)

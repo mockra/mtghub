@@ -17,6 +17,8 @@ Mtghub::Application.routes.draw do
     resources :comments, only: :create
   end
 
+  resources :comments
+
   resources :mtg_sets
   resources :cards
   resources :forks

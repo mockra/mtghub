@@ -21,4 +21,12 @@ feature 'commenting', js: true do
     click_button 'Comment'
     find('.comment', text: 'test comment')
   end
+
+  scenario 'deleting a comment' do
+    visit user_deck_comments_path(deck.user, deck)
+    fill_in 'comment_content', with: 'test comment'
+    click_button 'Comment'
+    find('.comment-delete').click
+    expect(page).to_not have_content 'test comment'
+  end
 end

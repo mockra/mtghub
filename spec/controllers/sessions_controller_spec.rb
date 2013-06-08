@@ -12,7 +12,7 @@ describe SessionsController do
 
       it 'redirects to root_url' do
         post :create, session: { email: user.email, password: user.password }
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to user
       end
     end
 

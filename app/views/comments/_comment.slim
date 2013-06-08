@@ -4,6 +4,12 @@
       = image_tag comment.user.gravatar_url size: 18, default: 'identicon'
       '
       = link_to comment.user.username, comment.user
-    .timestamp= link_to comment.created_at.to_s :short
+    .timestamp
+      = link_to comment.created_at.to_s :short
+      - if authorized?(comment.user)
+        '
+        = link_to comment, method: :delete, class: 'comment-delete',
+          remote: true do
+          i.icon-trash.muted
   .content
     = markdown(comment.content)

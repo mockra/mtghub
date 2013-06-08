@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :load_commentable
+  before_filter :load_commentable, only: :create
   respond_to :js
 
   def create
@@ -7,6 +7,12 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
     render layout: false
+  end
+
+  def destroy
+    @comment = current_user.comments.find_by_id params[:id]
+    @comment.destroy
+    render nothing: true
   end
 
 private

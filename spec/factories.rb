@@ -48,4 +48,9 @@ FactoryGirl.define do
   factory :format do
     title 'Standard'
   end
+
+  factory :comment do
+    user
+    content 'test'
+  end
 end
