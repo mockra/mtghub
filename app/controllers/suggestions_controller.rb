@@ -30,7 +30,9 @@ class SuggestionsController < ApplicationController
 
   def destroy
     suggestion = deck.suggestions.find_by_id params[:id]
-    suggestion.close
+    if current_user == suggestion.user || current_user == deck.user
+      suggestion.close
+    end
     redirect_to [deck.user, deck]
   end
 
