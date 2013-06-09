@@ -16,8 +16,14 @@
     .container
       ul.nav
         li.deck= link_to 'Deck', [@deck.user, @deck]
-        li.suggestions= link_to 'Suggestions', deck_suggestions_url(@deck)
-        li.comments= link_to 'Comments', user_deck_comments_url(@deck.user, @deck)
+        li.suggestions
+          = link_to deck_suggestions_url(@deck) do
+            ' Suggestions
+            code= @deck.suggestions.open.count
+        li.comments
+          = link_to user_deck_comments_url(@deck.user, @deck) do
+            ' Comments
+            code= @deck.comments.count
         li.stars= link_to 'Stars', deck_stars_url(@deck)
 
 javascript:

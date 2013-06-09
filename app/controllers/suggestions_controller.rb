@@ -5,7 +5,7 @@ class SuggestionsController < ApplicationController
   end
 
   def index
-    @suggestions ||= deck.suggestions
+    @suggestions ||= deck.suggestions.open
   end
 
   def create
@@ -26,6 +26,12 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = deck.suggestions.find_by_id(params[:id]).decorate
+  end
+
+  def destroy
+    suggestion = deck.suggestions.find_by_id params[:id]
+    suggestion.close
+    redirect_to [deck.user, deck]
   end
 
 private

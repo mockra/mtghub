@@ -1,11 +1,19 @@
 = render 'decks/links', active: :suggestions
-.suggestion-show
-  .main
-    .header
-      .title= @suggestion.title
+.suggestion
+  .header
+    .title
+      = @suggestion.title
+      small
+        '
+        ' by
+        = image_tag @suggestion.user.gravatar_url size: 18, default: 'identicon'
+        '
+        = @suggestion.user.username
+    .links
       = @suggestion.accept
-    .content= @suggestion.content
-  = render @suggestion
+      = @suggestion.close_option
+  .content= @suggestion.content
+= render @suggestion
 
 .comments
   - @suggestion.comments.each do |comment|

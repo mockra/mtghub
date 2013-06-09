@@ -51,7 +51,7 @@ describe SuggestionsController do
   describe '#index' do
     it 'assigns suggestions' do
       get :index, deck_id: deck
-      expect(assigns[:suggestions]).to eq deck.suggestions
+      expect(assigns[:suggestions]).to eq deck.suggestions.open
     end
   end
 
@@ -70,6 +70,16 @@ describe SuggestionsController do
     it 'redirects to deck#edit' do
       post :update, deck_id: origin, id: suggestion
       expect(response).to redirect_to edit_user_deck_url user, origin
+    end
+  end
+
+  describe '#update' do
+    let(:suggestion) { create :suggestion, deck: origin }
+
+    it 'closes the suggestion' do
+      delete :destroy, deck_id: origin, id: suggestion
+      suggestion.reload
+      expect(suggestion.open?).to be_false
     end
   end
 end

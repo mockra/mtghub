@@ -32,4 +32,13 @@ feature 'suggestions' do
     click_link 'Accept'
     expect(deck.suggestions.first.open?).to be_false
   end
+
+  scenario 'closing a suggestion' do
+    sign_in user
+    visit user_deck_path(deck.user, deck)
+    click_link 'Suggestions'
+    find('a', text: 'test').click
+    click_link 'Close'
+    expect(deck.suggestions.first.open?).to be_false
+  end
 end

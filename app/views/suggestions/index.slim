@@ -1,8 +1,16 @@
 = render 'decks/links', active: :suggestions
-- @suggestions.each do |suggestion|
-  .suggestion-box
-    .title= link_to suggestion.title, [@deck, suggestion]
-    .author
-      | by
-      '
-      = link_to suggestion.user.username, suggestion.user
+.span10.offset1
+  table.table.table-striped.suggestions
+    - @suggestions.each do |suggestion|
+      tr
+        td= link_to suggestion.title, [@deck, suggestion]
+        td.center
+          small
+            code= suggestion.comments.count
+            '  comments
+        td.right
+          | by
+          '
+          = image_tag suggestion.user.gravatar_url default: 'identicon', size: 18
+          '
+          = link_to suggestion.user.username, suggestion.user
