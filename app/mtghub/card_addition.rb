@@ -6,7 +6,8 @@ class CardAddition
   end
 
   def create
-    mtg_set.cards.create card_hash
+    card = mtg_set.cards.create card_hash
+    CardImageAddition.new(card).process
   end
 
   def mtg_set

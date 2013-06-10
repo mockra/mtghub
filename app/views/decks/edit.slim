@@ -6,7 +6,7 @@
         = render 'mtg_blocks'
       .span8
         h4.pull-left= @deck.title
-        = link_to @deck, method: :delete, confirm: 'Are you sure?' do
+        = link_to @deck, method: :delete, data: { confirm: 'Are you sure?' } do
           .btn.btn-danger.pull-right.deck-save
             i.icon-trash
         = link_to [@deck.user, @deck] do

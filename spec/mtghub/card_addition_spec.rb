@@ -1,6 +1,7 @@
 require_relative '../../app/mtghub/card_addition'
 
 class MtgSet; end
+class CardImageAddition; end
 
 describe CardAddition do
   let(:subject) { CardAddition.new 'Gatecrash', title: 'test' }
@@ -8,6 +9,7 @@ describe CardAddition do
   describe '#create' do
     it 'creates a card' do
       subject.stub_chain(:mtg_set, :cards, :create)
+      CardImageAddition.stub_chain :new, :process
       subject.create
     end
   end
