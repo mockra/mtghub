@@ -8,7 +8,7 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @mtg_blocks = MtgBlock.all
+    @mtg_sets = MtgSet.all
     @deck = current_user.decks.find_by_id(params[:id]).decorate
   end
 

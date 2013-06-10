@@ -9,7 +9,6 @@
           li Alt-click adds to sideboard
           li Click to remove card from deck
         ul.nav.nav-tabs.nav-stacked.block-list
-          - @mtg_blocks.each do |block|
-            - block.mtg_sets.each do |set|
-              li= link_to set.title, set, remote: true
+          - @mtg_sets.each do |set|
+            li= link_to set.title, set, remote: true
       .mtg_set.span6

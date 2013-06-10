@@ -18,7 +18,7 @@ class Suggestion < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
-  scope :open, where(open: true)
+  scope :open, -> { where(open: true) }
 
   def close
     update_attribute :open, false
