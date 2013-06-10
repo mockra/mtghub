@@ -5,6 +5,7 @@ feature 'set generation', :vcr do
   let(:mtg_set) { MtgSet.create title: 'Return to Ravnica', code: 'RTR' }
 
   before do
+    CardImageAddition.stub_chain :new, :process
     CardsFromSet.new(mtg_set.title).generate
   end
 

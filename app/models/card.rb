@@ -17,4 +17,12 @@ class Card < ActiveRecord::Base
   def self.terms_for term
     where("title ilike ?", "#{term}_%").limit(3).pluck(:title)
   end
+
+  def filename
+    "#{id}.jpeg"
+  end
+
+  def image
+    "#{filename}"
+  end
 end
