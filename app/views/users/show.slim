@@ -32,3 +32,10 @@
           = link_to suggestion.deck.title,
             [suggestion.deck.user, suggestion.deck]
         .details= suggestion.deck.stars.count
+    h3 Stars
+    - @user.stars.each do |star|
+      .deck-box
+        .title
+          = link_to star.deck.title,
+            [star.deck.user, star.deck]
+        .details= star.deck.stars.count
