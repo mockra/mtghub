@@ -2,11 +2,9 @@ require 'spec_helper'
 require 'vcr_config'
 
 feature 'set generation', :vcr do
-  let(:mtg_set) { MtgSet.create title: 'Return to Ravnica', code: 'RTR' }
-
   before do
     CardImageAddition.stub_chain :new, :process
-    CardsFromSet.new(mtg_set.title).generate
+    SetAddition.new('Return to Ravnica', 'RTR' 'Return to Ravnica').process
   end
 
   scenario 'fetches cards from the gatherer website' do
@@ -22,7 +20,7 @@ feature 'set generation', :vcr do
     expect(Card.first.description).to include 'countered by spells'
     expect(Card.first.gatherer_url).to include 'tails.aspx?multiverseid=253561'
     expect(Card.first.rarity).to eq 'Rare'
-    expect(Card.first.mtg_set).to eq mtg_set
+    expect(Card.first.mtg_set.title).to eq 'Return to Ravnica'
   end
 
   scenario 'creates a card in the database' do
