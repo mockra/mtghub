@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable, only: :create
-  respond_to :js
+  respond_to :js, :json
 
   def create
     @comment = @commentable.comments.build comment_params
@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.find_by_id params[:id]
     @comment.destroy
     render nothing: true
+  end
+
+  def update
+    @comment = current_user.comments.find_by_id params[:id]
+    @comment.update_attributes comment_params
+    respond_with @comment
   end
 
 private

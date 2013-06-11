@@ -14,6 +14,7 @@ ready = ->
   $('.nav-links .btn.login').tooltip
     placement: 'bottom'
     title: 'Log In'
+  $('.best_in_place').best_in_place()
 
 $(document).on 'click', '.comment a.comment-delete', ->
   $(this).parents('.comment').remove()

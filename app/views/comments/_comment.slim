@@ -12,4 +12,6 @@
           remote: true do
           i.icon-trash.muted
   .content
-    = markdown(comment.content)
+    - comment = comment.decorate
+    = best_in_place_if authorized?(comment.user), comment,
+      :content, type: :textarea, display_as: :md_content, inner_class: 'text'

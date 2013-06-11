@@ -30,4 +30,14 @@ describe CommentsController do
       }.to change(Comment, :count).by -1
     end
   end
+
+  describe '#update' do
+    before { controller.stub current_user: user }
+
+    it 'updates the comment content' do
+      post :update, comment: { content: 'updated' }, id: comment, format: :json
+      comment.reload
+      expect(comment.content).to eq 'updated'
+    end
+  end
 end

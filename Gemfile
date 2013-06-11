@@ -36,5 +36,6 @@ gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 gem 'gravtastic'
 gem 'redcarpet'
 gem 's3'
+gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 
 gem 'gatherer_set_parser'

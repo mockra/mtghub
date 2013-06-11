@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: df178520bf9ba405baee9528d5dbb630d6ff760c
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (>= 3.1)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: d75963307f3a9aa7884cff8d5ad228f65e94d343
   specs:
@@ -187,6 +195,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  best_in_place!
   bootstrap-sass
   bourbon
   coffee-rails (~> 4.0.0)
