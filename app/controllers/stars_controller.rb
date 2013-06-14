@@ -1,5 +1,6 @@
 class StarsController < ApplicationController
   before_filter :deck
+  before_filter :require_user, only: :create
 
   def index
     @stars = deck.stars

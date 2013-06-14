@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable, only: :create
+  before_filter :require_user, only: [:create, :update, :destroy]
   respond_to :js, :json
 
   def create

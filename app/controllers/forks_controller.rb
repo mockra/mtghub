@@ -1,4 +1,6 @@
 class ForksController < ApplicationController
+  before_filter :require_user
+
   def create
     @fork = ForkAddition.new(current_user, deck).create
     redirect_to edit_user_deck_url(current_user, @fork)

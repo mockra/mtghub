@@ -1,5 +1,6 @@
 class SuggestionsController < ApplicationController
   before_filter :suggestion, only: [:new, :create]
+  before_filter :require_user, only: [:create, :update, :destroy]
 
   def new
   end

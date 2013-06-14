@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  before_filter :require_user, only: [:create, :destroy]
+
   def index
     @deck = Deck
   end
