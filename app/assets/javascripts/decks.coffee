@@ -26,6 +26,7 @@ ready = ->
     $('#card_search').autocomplete(
       source: '/search_cards'
       minLength: 3
+      appendTo: ".results"
       select: (event, ui) ->
         type = 'sideboard' if event.altKey
         deck_id = $('.deck-data').attr('data-deck')
