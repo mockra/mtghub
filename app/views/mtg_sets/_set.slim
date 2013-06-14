@@ -1,5 +1,5 @@
 ul.mtgset
   - @mtg_set.cards.each do |card|
     = content_tag_for :li, card, 'data-id' => card.id,
-      'data-image' => card.image_url do
+      'data-image' => card.image do
       = card.title

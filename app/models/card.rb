@@ -23,6 +23,6 @@ class Card < ActiveRecord::Base
   end
 
   def image
-    "#{filename}"
+    "https://s3.amazonaws.com/mtg_cards/#{filename}"
   end
 end
