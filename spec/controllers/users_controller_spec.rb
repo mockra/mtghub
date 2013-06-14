@@ -12,15 +12,15 @@ describe UsersController do
 
   describe '#create' do
     context 'success' do
-      it 'redirects to root' do
-        post :create, user: attributes_for(:user)
-        expect(response).to redirect_to root_url
-      end
-
       it 'persists a new user' do
         expect {
           post :create, user: attributes_for(:user)
         }.to change(User, :count).by 1
+      end
+
+      it 'creates auth cookie' do
+        post :create, user: attributes_for(:user)
+        expect(cookies[:auth_token]).to_not be_nil
       end
     end
 
