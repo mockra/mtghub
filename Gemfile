@@ -26,7 +26,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'slim', '~> 2.0.0.pre.8'
+gem 'slim', '~> 2.0.0.rc.1'
 gem 'bourbon'
 gem 'flutie'
 gem 'bootstrap-sass'
