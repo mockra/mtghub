@@ -37,5 +37,7 @@ gem 'gravtastic'
 gem 'redcarpet'
 gem 's3'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
+gem 'capistrano'
+gem 'unicorn'
 
 gem 'gatherer_set_parser'
