@@ -8,7 +8,7 @@ load "config/recipes/rbenv"
 load "config/recipes/check"
 
 server "198.199.95.250", :web, :app
-server "198.199.112.62", :db, primary: true
+server "198.199.112.62", :db, primary: true, :no_release => true
 
 set :application, "mtghub"
 set :user, "root"

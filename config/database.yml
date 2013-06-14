@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: mtghub_production
   pool: 5
-  username: mockra
-  password:
+  username: mtghub
+  password: <%= ENV['PG_PASSWORD'] %>
