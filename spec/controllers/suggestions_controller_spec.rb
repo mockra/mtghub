@@ -24,12 +24,12 @@ describe SuggestionsController do
   describe '#create' do
     it 'persists a new suggestion' do
       expect {
-        post :create, deck_id: deck, suggestion: { title: ''}
+        post :create, deck_id: deck, suggestion: { title: 'test'}
       }.to change(Suggestion, :count).by 1
     end
 
     it 'redirects to suggestion' do
-      post :create, deck_id: deck, suggestion: { title: '' }
+      post :create, deck_id: deck, suggestion: { title: 'test' }
       expect(response).to redirect_to [origin, assigns[:suggestion]]
     end
 

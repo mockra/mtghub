@@ -18,6 +18,8 @@ class Suggestion < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
 
+  validates :title, presence: true
+
   scope :open, -> { where(open: true) }
 
   def close

@@ -8,6 +8,8 @@ describe Suggestion do
   it { should belong_to :deck }
   it { should have_many :comments }
 
+  it { should validate_presence_of :title }
+
   describe '#additions and deletions' do
     it 'has many cards' do
       cases = %w[additions deletions sideboard_deletions sideboard_additions]
