@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'vcr_config'
 
 feature 'users' do
   let(:user) { create :user }
@@ -18,5 +19,14 @@ feature 'users' do
     fill_in 'user_password', with: 'update'
     click_button 'Save'
     expect(page).to have_content 'update'
+  end
+
+  scenario 'deleting your account' do
+    sign_in user
+    expect {
+      visit edit_user_path(user)
+      click_link 'Delete Account'
+      expect(current_path).to eq root_path
+    }.to change(User, :count).by -1
   end
 end

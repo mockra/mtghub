@@ -4,3 +4,7 @@ br
 br
 br
 = render 'form'
+br
+br
+= link_to 'Delete Account', current_user, method: :delete,
+  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

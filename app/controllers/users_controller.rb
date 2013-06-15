@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     redirect_to current_user
   end
 
+  def destroy
+    current_user.destroy
+    cookies[:auth_token] = nil
+    redirect_to root_url
+  end
+
 private
   def user_params
     params.require(:user).permit(:username, :email, :password)

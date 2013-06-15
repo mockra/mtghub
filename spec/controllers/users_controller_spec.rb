@@ -62,4 +62,20 @@ describe UsersController do
       expect(response).to redirect_to user
     end
   end
+
+  describe '#destroy' do
+    before { controller.stub current_user: user }
+
+    it 'deletes the account' do
+      expect {
+        delete :destroy, id: user
+      }.to change(User, :count).by -1
+    end
+
+    it 'clears auth_token and redirects to root' do
+      delete :destroy, id: user
+      expect(cookies[:auth_token]).to be_nil
+      expect(response).to redirect_to root_url
+    end
+  end
 end
