@@ -1,20 +1,25 @@
-.additions
-  h3 Additions
-  - @suggestion.additions.each do |addition|
-    = render addition
+.row-fluid
+  .additions.span6
+    h3 Additions
+    - @suggestion.additions.each do |addition|
+      .span3
+        = render addition
 
-.deletions
-  h3 Deletions
-  - @suggestion.deletions.each do |deletion|
-    = render deletion
+  .deletions.span6
+    h3 Deletions
+    - @suggestion.deletions.each do |deletion|
+      .span3
+        = render deletion
 
-.sideboard
-  .additions
+.sideboard.row-fluid
+  .additions.span6
     h3 Sideboard Additions
     - @suggestion.sideboard_additions.each do |sideboard_addition|
-      = render sideboard_addition
+      .span3
+        = render sideboard_addition
 
-  .deletions
+  .deletions.span6
     h3 Sideboard Deletions
     - @suggestion.sideboard_deletions.each do |sideboard_deletion|
-      = render sideboard_deletion
+      .span3
+        = render sideboard_deletion

@@ -11,6 +11,7 @@
         = @suggestion.user.username
     .links
       = @suggestion.accept
+      '
       = @suggestion.close_option
   .content= @suggestion.content
 = render @suggestion
