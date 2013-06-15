@@ -61,7 +61,7 @@ class DeckDecorator < Draper::Decorator
     h.content_tag :li, class: "stars-post #{starred?}" do
       h.link_to h.deck_stars_path(self), remote: true, method: :post,
         class: 'stars-post-link' do
-        h.content_tag 'i', " #{stars.count}", class: 'icon-star'
+        h.content_tag 'i', " #{stars_count}", class: 'icon-star'
       end
     end
   end

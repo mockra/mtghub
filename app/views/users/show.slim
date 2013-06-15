@@ -23,7 +23,7 @@
               '
               = link_to deck.origin.user.username,
                 [deck.origin.user, deck.origin]
-        .details= deck.stars.count
+        .details= deck.stars_count
 
     h3 Suggestions
     - @user.suggestions.each do |suggestion|
@@ -31,11 +31,11 @@
         .title
           = link_to suggestion.deck.title,
             [suggestion.deck.user, suggestion.deck]
-        .details= suggestion.deck.stars.count
+        .details= suggestion.deck.stars_count
     h3 Stars
     - @user.stars.each do |star|
       .deck-box
         .title
           = link_to star.deck.title,
             [star.deck.user, star.deck]
-        .details= star.deck.stars.count
+        .details= star.deck.stars_count
