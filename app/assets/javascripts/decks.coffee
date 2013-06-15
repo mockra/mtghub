@@ -1,4 +1,4 @@
-$(document).on 'click', 'div.card', ->
+$(document).on 'click', '.decks-edit div.card', ->
   type = 'sideboard' if $(this).closest('.sideboard').length
   deck_id = $('.deck-data').attr('data-deck')
   $.ajax
