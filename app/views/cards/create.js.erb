@@ -1,21 +1,23 @@
 <% if @type == 'sideboard' %>
-    var last = $('.sideboard .mana-cost').last();
-    if (last.length == 0 || last.children().length == 5) {
-      var div = "<div class='mana-cost span3'>";
-      var text = div + "<%= escape_javascript(render @card) %></div>";
-      $('.sideboard').append(text);
-    } else {
-      last.append("<%= escape_javascript(render @card) %>");
-    }
+  var last = $('.sideboard .mana-cost').last();
+  if (last.length == 0 || last.children().length == 5) {
+    var div = "<div class='mana-cost span3'>";
+    var text = div + "<%= escape_javascript(render @card) %></div>";
+    $('.sideboard').append(text);
+  } else {
+    last.append("<%= escape_javascript(render @card) %>");
+  }
+  $('.sideboard span.count').text('<%= @deck.sideboard_cards.count %>');
 <% elsif @card.land? %>
-    var last = $('.lands .mana-cost').last();
-    if (last.length == 0 || last.children().length == 5) {
-      var div = "<div class='mana-cost span3'>";
-      var text = div + "<%= escape_javascript(render @card) %></div>";
-      $('.lands').append(text);
-    } else {
-      last.append("<%= escape_javascript(render @card) %>");
-    }
+  var last = $('.lands .mana-cost').last();
+  if (last.length == 0 || last.children().length == 5) {
+    var div = "<div class='mana-cost span3'>";
+    var text = div + "<%= escape_javascript(render @card) %></div>";
+    $('.lands').append(text);
+  } else {
+    last.append("<%= escape_javascript(render @card) %>");
+  }
+  $('.lands span.count').text('<%= @deck.lands.count %>');
 <% else %>
   var cmc = $('.cards .mana-cost.<%= @card.cmc %>');
 
@@ -26,4 +28,5 @@
     var text = div + "<%= escape_javascript(render @card) %></div>";
     $('.cards').append(text);
   }
+  $('.cards span.count').text('<%= @deck.non_lands.count %>');
 <% end %>

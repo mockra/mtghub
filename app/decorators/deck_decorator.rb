@@ -1,12 +1,16 @@
 class DeckDecorator < Draper::Decorator
   delegate_all
 
+  def non_lands
+    @non_lands ||= cards.reject(&:land?)
+  end
+
   def mana_groups
-    Hash[cards.reject(&:land?).group_by(&:cmc).sort]
+    Hash[non_lands.group_by(&:cmc).sort]
   end
 
   def lands
-    cards.select(&:land?)
+    @lands ||= cards.select(&:land?)
   end
 
   def land_groups

@@ -1,0 +1,7 @@
+<% if @type == 'sideboard' %>
+  $('.sideboard span.count').text('<%= @deck.sideboard_cards.count %>');
+<% elsif @card.land? %>
+  $('.lands span.count').text('<%= @deck.lands.count %>');
+<% else %>
+  $('.cards span.count').text('<%= @deck.non_lands.count %>');
+<% end %>

@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 
 private
   def deck
-    @deck ||= current_user.decks.find_by_id params[:deck_id]
+    @deck ||= current_user.decks.find_by_id(params[:deck_id]).decorate
   end
 
   def card
