@@ -50,11 +50,3 @@ test:
   pool: 5
   username: mockra
   password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: mtghub_production
-  pool: 5
-  username: mtghub
-  password: <%= ENV['PG_PASSWORD'] %>
