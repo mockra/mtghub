@@ -13,4 +13,5 @@
       = link_to logout_path, method: :delete, class: 'btn logout' do
         i.icon-off
     - else
+      = link_to 'Register', new_user_path, class: 'btn register'
       = link_to 'Sign In', login_path, class: 'btn login'
