@@ -23,6 +23,10 @@ class Card < ActiveRecord::Base
   end
 
   def image
-    "https://s3.amazonaws.com/mtg_cards/#{filename}"
+    if Rails.env == 'production'
+      "https://s3.amazonaws.com/mtg_cards/#{filename}"
+    else
+      "card_images/#{filename}"
+    end
   end
 end

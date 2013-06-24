@@ -31,12 +31,17 @@ class CardImageAddition
   end
 
   def upload_card
-    img = bucket.objects.build card.filename
-    img.content = open "tmp/#{card.filename}"
-    img.save
+    if Rails.env == 'production'
+      img = bucket.objects.build card.filename
+      img.content = open "tmp/#{card.filename}"
+      img.save
+    else
+      FileUtils.mv "tmp/#{card.filename}",
+        "public/card_images/#{card.filename}"
+    end
   end
 
   def delete_temp_card
-    File.delete "tmp/#{card.filename}"
+    File.delete "tmp/#{card.filename}" if Rails.env == 'production'
   end
 end
