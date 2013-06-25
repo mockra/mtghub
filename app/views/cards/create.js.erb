@@ -1,7 +1,7 @@
 <% if @type == 'sideboard' %>
   var last = $('.sideboard .mana-cost').last();
   if (last.length == 0 || last.children().length == 5) {
-    var div = "<div class='mana-cost span3'>";
+    var div = "<div class='mana-cost span2'>";
     var text = div + "<%= escape_javascript(render @card) %></div>";
     $('.sideboard').append(text);
   } else {
@@ -11,7 +11,7 @@
 <% elsif @card.land? %>
   var last = $('.lands .mana-cost').last();
   if (last.length == 0 || last.children().length == 5) {
-    var div = "<div class='mana-cost span3'>";
+    var div = "<div class='mana-cost span2'>";
     var text = div + "<%= escape_javascript(render @card) %></div>";
     $('.lands').append(text);
   } else {
@@ -24,9 +24,10 @@
   if (cmc.length) {
     cmc.append("<%= escape_javascript(render @card) %>");
   } else {
-    var div = "<div class='mana-cost span3 <%= @card.cmc %>'>";
+    var div = "<div class='mana-cost span2 <%= @card.cmc %>'>";
     var text = div + "<%= escape_javascript(render @card) %></div>";
     $('.cards').append(text);
   }
   $('.cards span.count').text('<%= @deck.non_lands.count %>');
 <% end %>
+$('div.card').tooltip({html: true});

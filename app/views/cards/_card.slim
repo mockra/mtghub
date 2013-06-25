@@ -1,2 +1,3 @@
-= content_tag_for :div, card, 'data-id' => card.id do
+= content_tag_for :div, card, 'data-id' => card.id,
+  'data-toggle' => 'tooltip', title: "#{image_tag(card.image)}" do
   = image_tag card.image

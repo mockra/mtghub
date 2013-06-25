@@ -7,6 +7,7 @@ group :assets do
   gem 'sass-rails', git: 'git://github.com/rails/sass-rails.git'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'

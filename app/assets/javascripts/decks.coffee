@@ -6,6 +6,7 @@ $(document).on 'click', '.decks-edit div.card', ->
     data: { deck_id: deck_id, type: type }
     type: 'DELETE'
     dataType: 'script'
+  $(this).tooltip 'destroy'
   $(this).remove()
 
 $(document).on
@@ -34,6 +35,10 @@ ready = ->
           { id: 0, deck_id: deck_id, type: type, term: ui.item.value }
     ).data("autocomplete").close = (e) ->
       false
+
+ready = ->
+  $('div.card').tooltip
+    html: true
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

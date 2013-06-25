@@ -14,4 +14,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-public/card_images/*
+public/images/card_images/*

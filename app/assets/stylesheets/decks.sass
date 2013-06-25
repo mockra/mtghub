@@ -1,10 +1,9 @@
 .decks-show, .decks-edit
-
   div.mana-cost
     margin: 0 4px 12px 4px
 
   div.card
-    margin-top: -268px
+    margin-top: -168px
 
     img
       border-radius: 8px
@@ -16,12 +15,12 @@
   .lands, .sideboard
     clear: both
 
-  div.mana-cost:nth-of-type(4n + 1)
+  div.mana-cost:nth-of-type(6n + 1)
     clear: both
 
 .decks-edit
   div.card
-    margin-top: -176px
+    margin-top: -110px
 
     img
       border-radius: 5px
@@ -107,3 +106,16 @@ span.ui-helper-hidden-accessible
 
   a
     color: white
+
+.deck
+  .tooltip.in
+    opacity: 1
+    filter: alpha(opacity=100)
+
+  .tooltip
+    img
+      border-radius: 10px
+
+  div[class="tooltip-inner"]
+    margin-left: 80px
+    background-color: transparent

@@ -4,7 +4,7 @@
       ' Cards
       span.count= @deck.non_lands.count
     - @deck.mana_groups.each_pair do |cmc, cards|
-      .span3.mana-cost class=cmc
+      .span2.mana-cost class=cmc
         - cards.each do |card|
           = render card
   .lands
@@ -13,7 +13,7 @@
       ' Lands
       span.count= @deck.lands.count
     - @deck.land_groups.each do |lands|
-      .span3.mana-cost
+      .span2.mana-cost
         -lands.each do |land|
           = render land
 
@@ -23,6 +23,6 @@
       ' Sideboard
       span.count= @deck.sideboard_cards.count
     - @deck.sideboard_groups.each do |cards|
-      .span3.mana-cost
+      .span2.mana-cost
         - cards.each do |card|
           = render card
