@@ -20,7 +20,7 @@ class SetAddition
   end
 
   def create_block
-    MtgBlock.create(title: block) if !block
+    MtgBlock.create(title: block_title) if !block
   end
 
   def collect_set
