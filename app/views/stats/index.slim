@@ -1,8 +1,10 @@
 = render 'decks/links', active: :stats
 
-.span6
-  = render 'card_types'
-.span6
-  = render 'curve'
-.span6
-  = render 'color_distribution'
+.row-fluid
+  .span10.offset1
+    .span6
+      = render 'card_types'
+    .span6
+      = render 'curve'
+    .span6.offset3
+      = render 'color_distribution'
