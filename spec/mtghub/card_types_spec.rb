@@ -9,13 +9,13 @@ describe CardTypes do
     it 'generates values for each color' do
       expect(card_types).to receive(:types) { types }
       expect(card_types.stats).to eq(
-      [{:value=>2, :color=>"green", :label=>"Land"},
-       {:value=>1, :color=>"blue", :label=>"Creature"},
-       {:value=>1, :color=>"black", :label=>"Instant", :labelColor=>"white"},
-       {:value=>0, :color=>"red", :label=>"Sorcery"},
-       {:value=>0, :color=>"gray", :label=>"Artifact"},
-       {:value=>0, :color=>"gray", :label=>"Planeswalker"},
-       {:value=>0, :color=>"purple", :label=>"Enchantment"}])
+        [ {:value=>2, :color=>"#F7464A", :label=>"Land"},
+          {:value=>1, :color=>"#E2EAE9", :label=>"Creature"},
+          {:value=>1, :color=>"#D4CCC5", :label=>"Instant"},
+          {:value=>0, :color=>"#949FB1", :label=>"Sorcery"},
+          {:value=>0, :color=>"#4D5360", :label=>"Artifact"},
+          {:value=>0, :color=>"pink", :label=>"Planeswalker"},
+          {:value=>0, :color=>"purple", :label=>"Enchantment"} ])
     end
   end
 end
