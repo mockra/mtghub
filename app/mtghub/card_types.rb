@@ -9,12 +9,12 @@ class CardTypes
 
   def stats
     set_types
-    [ {value: @land, color: 'green', label: 'Land'},
-      {value: @creature, color: 'blue', label: 'Creature'},
-      {value: @instant, color: 'black', label: 'Instant', labelColor: 'white'},
-      {value: @sorcery, color: 'red', label: 'Sorcery'},
-      {value: @artifact, color: 'gray', label: 'Artifact'},
-      {value: @planeswalker, color: 'gray', label: 'Planeswalker'},
+    [ {value: @land, color: '#F7464A', label: 'Land'},
+      {value: @creature, color: '#E2EAE9', label: 'Creature'},
+      {value: @instant, color: '#D4CCC5', label: 'Instant'},
+      {value: @sorcery, color: '#949FB1', label: 'Sorcery'},
+      {value: @artifact, color: '#4D5360', label: 'Artifact'},
+      {value: @planeswalker, color: 'pink', label: 'Planeswalker'},
       {value: @enchantment, color: 'purple', label: 'Enchantment'} ]
   end
 
