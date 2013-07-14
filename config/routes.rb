@@ -11,6 +11,7 @@ Mtghub::Application.routes.draw do
     resources :suggestions
     resources :comments, only: :create
     resources :stars
+    resources :stats
   end
 
   resources :suggestions do

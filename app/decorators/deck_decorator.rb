@@ -71,4 +71,8 @@ class DeckDecorator < Draper::Decorator
       'active'
     end
   end
+
+  def stats
+    StatsWidget.new(self)
+  end
 end

@@ -1,0 +1,7 @@
+h3 Card Types
+canvas#card_types
+
+javascript:
+  var data = #{@deck.stats.card_types.to_json.html_safe};
+  var ctx = document.getElementById("card_types").getContext("2d");
+  new Chart(ctx).Pie(data);

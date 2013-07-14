@@ -1,0 +1,7 @@
+h3 Mana Curve
+canvas#curve
+
+javascript:
+  var data = #{@deck.stats.curve.to_json.html_safe};
+  var ctx = document.getElementById("curve").getContext("2d");
+  new Chart(ctx).Bar(data);

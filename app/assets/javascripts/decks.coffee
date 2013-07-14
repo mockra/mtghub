@@ -36,9 +36,5 @@ ready = ->
     ).data("autocomplete").close = (e) ->
       false
 
-ready = ->
-  $('div.card').tooltip
-    html: true
-
 $(document).ready(ready)
 $(document).on('page:load', ready)
