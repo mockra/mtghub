@@ -24,7 +24,7 @@ $(document).on
 
 ready = ->
   if $('#card_search').length > 0
-    $('#card_search').autocomplete(
+    $('#card_search').autocomplete
       source: '/search_cards'
       minLength: 3
       appendTo: ".results"
@@ -33,8 +33,9 @@ ready = ->
         deck_id = $('.deck-data').attr('data-deck')
         $.post $('.deck-data').attr('data-url'),
           { id: 0, deck_id: deck_id, type: type, term: ui.item.value }
-    ).data("autocomplete").close = (e) ->
-      false
+      close: (event, ui) ->
+        if !$("ul.ui-autocomplete").is(":visible")
+          $("ul.ui-autocomplete").show()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
