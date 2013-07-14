@@ -37,5 +37,8 @@ ready = ->
         if !$("ul.ui-autocomplete").is(":visible")
           $("ul.ui-autocomplete").show()
 
+  $('.decks-show div.card').tooltip
+    html: true
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
