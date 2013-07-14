@@ -1,0 +1,7 @@
+h3 Color Distribution
+canvas#color_distribution
+
+javascript:
+  var data = #{@deck.stats.color_distribution.to_json.html_safe};
+  var ctx = document.getElementById("color_distribution").getContext("2d");
+  new Chart(ctx).Doughnut(data);
