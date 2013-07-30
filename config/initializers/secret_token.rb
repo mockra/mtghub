@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mtghub::Application.config.secret_key_base = 'c439c7b1c638104fbee983a422f9f7cc806ceb7c169d565623125c4f0110f891cb61d3c253eb0aa8d5eb274996941c8ccfb171686953c761ffe8e36d74fa2a10'
+Mtghub::Application.config.secret_key_base = ENV['MTGHUB_SECRET_TOKEN'] || ('y' * 30)
