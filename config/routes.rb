@@ -1,6 +1,12 @@
 Mtghub::Application.routes.draw do
   get 'register' => 'users#new', as: :register
 
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :mtg_sets
+    end
+  end
+
   resources :users do
     resources :decks do
       get 'comments'
