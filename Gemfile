@@ -40,5 +40,6 @@ gem 's3'
 gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git'
 gem 'capistrano'
 gem 'unicorn'
+gem 'active_model_serializers'
 
 gem 'gatherer_set_parser'
