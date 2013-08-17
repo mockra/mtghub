@@ -7,6 +7,13 @@
 ### How to run the test suite
     rspec spec
 
+### API
+Sets are available through a simple API.
+
+Accessing a set with its cards can be done as such:
+
+`/api/v1/mtg_sets/return%20to%20ravnica`
+
 ## Contact
 
 [david@mockra.com](mailto:david@mockra.com)
