@@ -1,6 +1,8 @@
 # MtgHub
 * Magic the Gathering Deck Collaboration Application
 
+Website: [mtghub.com](http://mtghub.com)
+
 ### Ruby version
     ruby 2.0.0p195
 
