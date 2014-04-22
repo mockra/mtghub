@@ -13,7 +13,7 @@ feature 'suggestions addendum' do
     deck.sideboard.cards = [card_two, card_two]
     SuggestionAddendum.new(deck, suggestion).process
     deck.reload
-    expect(deck.cards).to eq [card, card, card]
-    expect(deck.sideboard.cards).to eq [card, card, card_two]
+    expect(deck.cards).to match_array [card, card, card]
+    expect(deck.sideboard.cards).to match_array [card, card, card_two]
   end
 end
